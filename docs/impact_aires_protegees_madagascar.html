@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.315">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Florent Bédécarrats, Jeanne de Montalembert, Marin Ferry et Kenneth Houngbedji">
+<meta name="dcterms.date" content="2022-09-04">
+
+<title>Impact des aires protégées sur la déforestation à Madagascar</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body>
+
+<div id="quarto-search-results"></div>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#idées-pour-la-structuration-du-cours" id="toc-idées-pour-la-structuration-du-cours" class="nav-link active" data-scroll-target="#idées-pour-la-structuration-du-cours">Idées pour la structuration du cours</a></li>
+  <li><a href="#principe-dorganisation" id="toc-principe-dorganisation" class="nav-link" data-scroll-target="#principe-dorganisation">Principe d’organisation</a></li>
+  <li><a href="#programme-première-ébauche-à-discuter" id="toc-programme-première-ébauche-à-discuter" class="nav-link" data-scroll-target="#programme-première-ébauche-à-discuter">Programme (première ébauche à discuter)</a>
+  <ul class="collapse">
+  <li><a href="#section-1---définition-des-objectifs-de-lévaluation-14-journée" id="toc-section-1---définition-des-objectifs-de-lévaluation-14-journée" class="nav-link" data-scroll-target="#section-1---définition-des-objectifs-de-lévaluation-14-journée">Section 1 - Définition des objectifs de l’évaluation (1/4 journée ?)</a></li>
+  <li><a href="#séance-2---recherche-bibliographique-14-journée" id="toc-séance-2---recherche-bibliographique-14-journée" class="nav-link" data-scroll-target="#séance-2---recherche-bibliographique-14-journée">Séance 2 - Recherche bibliographique (1/4 journée ?)</a></li>
+  <li><a href="#séance-3---étude-darticles-et-synthèse-12-journée" id="toc-séance-3---étude-darticles-et-synthèse-12-journée" class="nav-link" data-scroll-target="#séance-3---étude-darticles-et-synthèse-12-journée">Séance 3 - étude d’articles et synthèse (1/2 journée ?)</a></li>
+  <li><a href="#séance-4---sources-de-données-12-journée" id="toc-séance-4---sources-de-données-12-journée" class="nav-link" data-scroll-target="#séance-4---sources-de-données-12-journée">Séance 4 - Sources de données (1/2 journée ?)</a></li>
+  <li><a href="#séance-5---traitement-des-données-1-jour" id="toc-séance-5---traitement-des-données-1-jour" class="nav-link" data-scroll-target="#séance-5---traitement-des-données-1-jour">Séance 5 - Traitement des données (1 jour ?)</a></li>
+  <li><a href="#séance-6---analyse-de-données-2-jours" id="toc-séance-6---analyse-de-données-2-jours" class="nav-link" data-scroll-target="#séance-6---analyse-de-données-2-jours">Séance 6 - analyse de données (2 jours ?)</a></li>
+  </ul></li>
+  <li><a href="#cas-détude-évaluation-de-limpact-des-aires-protégées-sur-la-déforestation-àà-madagascar" id="toc-cas-détude-évaluation-de-limpact-des-aires-protégées-sur-la-déforestation-àà-madagascar" class="nav-link" data-scroll-target="#cas-détude-évaluation-de-limpact-des-aires-protégées-sur-la-déforestation-àà-madagascar">Cas d’étude : évaluation de l’impact des aires protégées sur la déforestation àà madagascar</a>
+  <ul class="collapse">
+  <li><a href="#environnement-et-paramétrages" id="toc-environnement-et-paramétrages" class="nav-link" data-scroll-target="#environnement-et-paramétrages">Environnement et paramétrages</a></li>
+  <li><a href="#préparation-des-données" id="toc-préparation-des-données" class="nav-link" data-scroll-target="#préparation-des-données">Préparation des données</a>
+  <ul class="collapse">
+  <li><a href="#aires-protégées" id="toc-aires-protégées" class="nav-link" data-scroll-target="#aires-protégées">Aires protégées</a></li>
+  <li><a href="#données-satellitaires" id="toc-données-satellitaires" class="nav-link" data-scroll-target="#données-satellitaires">Données satellitaires</a></li>
+  <li><a href="#croisement-des-données-daires-protégées-et-satellitaires" id="toc-croisement-des-données-daires-protégées-et-satellitaires" class="nav-link" data-scroll-target="#croisement-des-données-daires-protégées-et-satellitaires">Croisement des données d’aires protégées et satellitaires</a></li>
+  </ul></li>
+  <li><a href="#estimation-de-limpact" id="toc-estimation-de-limpact" class="nav-link" data-scroll-target="#estimation-de-limpact">Estimation de l’impact</a>
+  <ul class="collapse">
+  <li><a href="#pistes-damélioration" id="toc-pistes-damélioration" class="nav-link" data-scroll-target="#pistes-damélioration">Pistes d’amélioration</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#a-faire" id="toc-a-faire" class="nav-link" data-scroll-target="#a-faire">A faire</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Impact des aires protégées sur la déforestation à Madagascar</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Florent Bédécarrats, Jeanne de Montalembert, Marin Ferry et Kenneth Houngbedji </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">September 4, 2022</p>
+    </div>
+  </div>
+    
+  </div>
+  
+
+</header>
+
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># # Le package est en cours de développement, toujours installer la version en cours</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"mapme-initiative/mapme.biodiversity"</span>, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">upgrade =</span> <span class="st">"always"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>librairies_requises <span class="ot">&lt;-</span> <span class="fu">c</span>( <span class="co"># On liste les librairies dont on a besoin</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"dplyr"</span>, <span class="co"># Pour faciliter la manipulation de données tabulaires</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidyr"</span>, <span class="co"># Pour reformater les données (pivots...)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"sf"</span>, <span class="co"># Pour faciliter la manipulation de données géographiques</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"wdpar"</span>, <span class="co"># Pour télécharger simplement la base d'aires protégées WDPA</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tmap"</span>, <span class="co"># Pour produire de jolies carte</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">"geodata"</span>, <span class="co"># Pour télécharger simplement les frontières administratives</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">"tidygeocoder"</span>, <span class="co"># pour obtenir les coordo GPS d'un point à partir de son nom</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">"maptiles"</span>, <span class="co"># Pour télécharger des fonds de carte </span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">"purrr"</span>, <span class="co"># Pour utiliser des formes fonctionnelles de programmation (ex. map)</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="st">"mapme.biodiversity"</span>, <span class="co"># Acquisition et traitement des données du projet</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="st">"plm"</span>, <span class="co"># Linear Models for Panel Data and robust covariance matrices</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"stargazer"</span>, <span class="co"># Reformater de manière plus lisible les résumé des régressions</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"MatchIt"</span>, <span class="co"># Pour le matching</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="co">#"glm", # Modèles linéaires généralisés (pour le PSM)</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">"optmatch"</span>, <span class="co"># Fonctions d'optimisation du matching</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">"cobalt"</span>) <span class="co"># Tables et graphs d'équilibre des groupes de matching</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co"># On regarde parmi ces librairies lesquelles ne sont pas installées</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>manquantes <span class="ot">&lt;-</span> <span class="sc">!</span>(librairies_requises <span class="sc">%in%</span> <span class="fu">installed.packages</span>())</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># On installe celles qui manquent</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">any</span>(manquantes)) <span class="fu">install.packages</span>(librairies_requises[manquantes])</span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="co"># On charge toutes les librairies requises</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">invisible</span>(<span class="fu">lapply</span>(librairies_requises, require, <span class="at">character.only=</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Système de coordonnées géographiques utilisées pour le projet : EPSG:29739</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>mon_scr <span class="ot">&lt;-</span> <span class="st">"EPSG:29739"</span> <span class="co"># correspondant à Tananarive / UTM zone 39S</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Surface des hexagones en km2</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>taille_hex <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Taille des titres des cartes</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>taille_titres_cartes <span class="ot">=</span> <span class="fl">0.8</span></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="co"># on crée un dossier de données si pas déjà disponible</span></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"data_s3"</span>)</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Désactiver les notations scientifiques</span></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">scipen =</span><span class="dv">999</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="idées-pour-la-structuration-du-cours" class="level2">
+<h2 class="anchored" data-anchor-id="idées-pour-la-structuration-du-cours">Idées pour la structuration du cours</h2>
+</section>
+<section id="principe-dorganisation" class="level2">
+<h2 class="anchored" data-anchor-id="principe-dorganisation">Principe d’organisation</h2>
+<p>Les ateliers dureront 5 jours, suivis d’1/2 journée de restitution, avec 25 participants par atelier (~125 au total). On veillera à diviser l’atelier en sous-groupes en essayant d’avoir dans chaque groupe au moins un participant ayant quelques compétences économétrie et un participant capable de déchiffrer un texte en anglais.</p>
+<p>Pour capter et retenir l’attention d’apprenants ayant des niveaux hétérogène, la proposition serait d’alterner des séances très spécifiques/concrètes avec des séances plus théoriques/méthodologiques. On pourrait ainsi avoir une approche itérative, avec une durée des sections qui reste à déterminer (entre 1/2 et 1 journée ?).</p>
+</section>
+<section id="programme-première-ébauche-à-discuter" class="level2">
+<h2 class="anchored" data-anchor-id="programme-première-ébauche-à-discuter">Programme (première ébauche à discuter)</h2>
+<p>Le programme qui suit n’est qu’une proposition pour alimenter la réflexion collective :</p>
+<section id="section-1---définition-des-objectifs-de-lévaluation-14-journée" class="level3">
+<h3 class="anchored" data-anchor-id="section-1---définition-des-objectifs-de-lévaluation-14-journée">Section 1 - Définition des objectifs de l’évaluation (1/4 journée ?)</h3>
+<p>Qu’est-ce qu’une évaluation d’impact au sens économétrique du terme ? Quels sont les autres types d’évaluation et quelle est la différence ? Place centrale d’une question évaluative précise pour les évaluations d’impact : impact de quoi (intervention), sur qui (groupe de traitement), sur quoi (variable de résultat). Les EI évaluent un mode d’intervention, pas un projet en particulier : enjeux de validité interne et validité externe.</p>
+<ul>
+<li><p>Exercice : Formuler des questions se prêtant à une évaluation d’impact sur des enjeux de conservation.</p></li>
+<li><p>Discussion : Approches évaluatives différentes qu’on peut porter avec d’autres méthodes (approches quali ou évaluation “classique”).</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>Synthèse : introduction succincte au formalisme des équations et aux DAG.</p>
+</blockquote>
+</section>
+<section id="séance-2---recherche-bibliographique-14-journée" class="level3">
+<h3 class="anchored" data-anchor-id="séance-2---recherche-bibliographique-14-journée">Séance 2 - Recherche bibliographique (1/4 journée ?)</h3>
+<p>Compte tenu de la portée générale des EI, il n’est pas pertinent de les mener pour chaque projet/situation particulière : il est donc essentiel de commencer par une bonne revue de littérature pour savoir si le mode d’intervention qui nous intéresse a déjà été évalué dans un contexte analogue. Cette session présente les outils et méthodes de revue de littérature applicables aux évaluations d’impact.</p>
+<p>Google Scholar : présentation de l’outil et recommandations pour trouver des évaluations d’impact pertinentes (recherche avancée, similaires et citations).</p>
+<ul>
+<li>Exercice : utiliser Google Scholar pour mener une revue de littérature sur le thème de l’impact des aires protégées, au niveau mondial, régional (ex. Afrique) ou national (Madagascar)</li>
+</ul>
+<p>Présentation des bases d’évaluation d’impact (p.&nbsp;ex. Campbell Collaboration). Focus sur la base d’évaluations d’impact du 3IE.</p>
+<ul>
+<li>Exercice : explorer l’evidence gap map du sur la conservation des forêts : <a href="https://gapmaps.3ieimpact.org/evidence-maps/forest-conservation-gap-map" class="uri">https://gapmaps.3ieimpact.org/evidence-maps/forest-conservation-gap-map</a> - revue de littérature.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Synthèse théorique : Présentation rapide des revues systématiques ;: méthode, portée et limites.</p>
+</blockquote>
+</section>
+<section id="séance-3---étude-darticles-et-synthèse-12-journée" class="level3">
+<h3 class="anchored" data-anchor-id="séance-3---étude-darticles-et-synthèse-12-journée">Séance 3 - étude d’articles et synthèse (1/2 journée ?)</h3>
+<p>Les formateurs distribuent aux participant un article court sur l’évaluation de l’impact des aires protégées sur la déforestation. Les apprenants le lisent. Les formateurs en font une synthèse en renseignant plusieurs critères : discipline des auteurs, périmètre de l’étude, données mobilisées, unités comparées, taille d’échantillon, méthode, spécifications du modèle (variable de traitement, de contrôle, et de résultat), résultat.</p>
+<ul>
+<li>Exercice : les étudiants se voient chacun remettre un article (en français) et remplir la ligne</li>
+</ul>
+<blockquote class="blockquote">
+<p>Synthèse théorique : tableau complété de revue de la littérature.</p>
+</blockquote>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On initie un tableau vide</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>revue_litt <span class="ot">&lt;-</span> tibble<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Référence</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Titre</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Discipline des auteurs</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Périmètre d'analyse</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Données mobilisées</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Unités comparées</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Taille d'échantillon</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Méthode d'attibution</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Variable de traitement</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Variables de contrôle</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Variable de résultat</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">character</span>(),</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Résultats</span><span class="st">`</span><span class="ot">=</span> <span class="fu">character</span>())</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># On remplit autant de "fiches" que de références pour composer le tableau final</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>revue_litt <span class="ot">&lt;-</span> revue_litt <span class="sc">%&gt;%</span> <span class="fu">add_row</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Référence</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Titre</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Discipline des auteurs</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Périmètre d'analyse</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Données mobilisées</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Unités comparées</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Taille d'échantillon</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Méthode d'attibution</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Variable de traitement</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Variables de contrôle</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Variable de résultat</span><span class="st">`</span> <span class="ot">=</span> <span class="st">""</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  <span class="st">`</span><span class="at">Résultats</span><span class="st">`</span><span class="ot">=</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="séance-4---sources-de-données-12-journée" class="level3">
+<h3 class="anchored" data-anchor-id="séance-4---sources-de-données-12-journée">Séance 4 - Sources de données (1/2 journée ?)</h3>
+<p>Ouvrir les participants sur la diversité des données qui peuvent être mobilisées pour évaluer l’impact de solutions, projets ou politiques publiques : données d’enquêtes, recensements, systèmes d’information (administratifs/gestion), données satellitaires, nouveaux jeux composites. Avantage et limites de ces sources de données. Présentation de sources potentielles : IHSN, institut national de statistique, Protected Planet, FAO… (préparer un tableau de synthèse ?)</p>
+<ul>
+<li>Exercice : recherche de source de données pertinentes pour étudier l’impact des aires protégées sur la déforestation.</li>
+</ul>
+<p>Présentation d’outils facilitant la collecte : Google Earth Engine (catalogue) et mapme.biodiversity.</p>
+<ul>
+<li>Exercice : essai de recherche de données.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Synthèse : enjeux de compatibilité des mailles spatiales, temporelles, unités…</p>
+</blockquote>
+</section>
+<section id="séance-5---traitement-des-données-1-jour" class="level3">
+<h3 class="anchored" data-anchor-id="séance-5---traitement-des-données-1-jour">Séance 5 - Traitement des données (1 jour ?)</h3>
+<p>Présentation des principaux logiciels/langages : R, Python, Stata, Google Earth Engine, et ressources pour l’auto-formation.</p>
+<ul>
+<li>Discussions : expériences et avantanges/inconvénients des logiciels à base de code.</li>
+</ul>
+<p>Focus sur R : langages, librairies, ressources, types de documents de travail (R, RMarkdown, Quarto, Shiny…) et documents en sortie (présentations, LaTeX/pdf, html, Word, applications interactives…).</p>
+<ul>
+<li>Exercice : prise en main de R, premier rendus</li>
+</ul>
+<p>Présentation de l’étude de cas sur les aires protégées à Madagascar : section “Traitement de données” plus bas.</p>
+</section>
+<section id="séance-6---analyse-de-données-2-jours" class="level3">
+<h3 class="anchored" data-anchor-id="séance-6---analyse-de-données-2-jours">Séance 6 - analyse de données (2 jours ?)</h3>
+<p>Les logiciels et les ressources d’auto-formation. R Stata Python Google Earth Engine</p>
+<p>Concevoir un questionnaire</p>
+<p>Séance 7 - Interprétation des résultats et discussion (1/2 journée ?)</p>
+</section>
+</section>
+<section id="cas-détude-évaluation-de-limpact-des-aires-protégées-sur-la-déforestation-àà-madagascar" class="level1">
+<h1>Cas d’étude : évaluation de l’impact des aires protégées sur la déforestation àà madagascar</h1>
+<section id="environnement-et-paramétrages" class="level2">
+<h2 class="anchored" data-anchor-id="environnement-et-paramétrages">Environnement et paramétrages</h2>
+<p>L’analyse est réalisée en R, qui est à la fois un logiciel et un langage open sources dédiés à l’analyse de données. Les traitements sont réalisés en Rmarkdown. Le même code source peut générer un rendu en LaTeX/PDF, HTML ou Word.</p>
+<p>On réutilise en partie le code publié par Johannes Schielein: Jochen Kluve, Johannes Schielein, Melvin Wong, Yota Eilers, The KfW Protected Areas Portfolio: a Rigorous Impact Evaluation, KfW, 2022-07-08.</p>
+<p>On s’appuie sur le package R {mapme.biodiversity}, développé par la KfW dans le cadre de l’initiative commune MAPME qui associe la KfW et l’AFD. Le package {mapme.biodiversity} facilite l’acquisition et la préparation d’un grand nombre de données (CHIRPS, Global Forest Watch, FIRMS, SRTM, Worldpop…) et calculer un grand nombre d’indicateurs de manière harmonisée (active_fire_counts, biome classification, land cover classification, population count, precipitation, soil properties, tree cover loss, travel time…). Une documentation riche est disponible sur le portail dédié du package en question.</p>
+<p>On mobilise aussi les codes d’analyse d’impact développés par la même équipe et mise à disposition dans le dépôt Github: <a href="https://github.com/openkfw/mapme.protectedareas" class="uri">https://github.com/openkfw/mapme.protectedareas</a>. Le code développé par l’équipe est assez complexe. A des fins pédagogiques et pour s’assurer qu’on l’a bien compris, on propose ici une version simplifiée (en cours de développement)</p>
+<p>Les sources pour l’ensemble du code source et du texte du présent document est accessible sur Github à l’adresse suivante : <a href="https://github.com/fBedecarrats/deforestation_madagascar" class="uri">https://github.com/fBedecarrats/deforestation_madagascar</a>. Les analyses sont menées sur la plateforme SSP Cloud, mise à disposition par l’INSEE pour les data scientist travaillant pour des administrations publiques. Il s’agit d’une instance de stockage de données massif (S3) et de calcul haute performance (cluster Kubernetes) disposant d’une interface simplifiée permettant à l’utilisateur de configurer, lancer et administrer facilement des environnements de traitement de données (RStudio server, Jupyter lab ou autres…). Le code est conçu pour s’exécuter de la même manière en local sur un PC, mais la préparation des données sera certainement beaucoup plus longue à exécuter.</p>
+</section>
+<section id="préparation-des-données" class="level2">
+<h2 class="anchored" data-anchor-id="préparation-des-données">Préparation des données</h2>
+<p>Les données spatialisées à croiser son, pour certaines, des données vectorielles (aires protégées, frontières administratives) et, pour d’autres, des données matricielles (“raster data”, en anglais).</p>
+<section id="aires-protégées" class="level3">
+<h3 class="anchored" data-anchor-id="aires-protégées">Aires protégées</h3>
+<p>Les données d’aires protégées sont issues de la base WDPA, consultable en ligne sur protectedplanet.org.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ce qui suit jusqu'à la commande "save" ne s'execute que si le résultat n'a pas</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># déjà été généré lors d'une exécution précédente.</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="st">"data_s3/aires_prot_mada.rds"</span>)) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">"data_s3/aires_prot_mada.rds"</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Téléchargement et chargement dans R des données d'aires protégées malgaches</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  aires_prot_mada <span class="ot">&lt;-</span> <span class="fu">wdpa_fetch</span>(<span class="st">"Madagascar"</span>, <span class="at">wait =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>                                <span class="at">download_dir =</span> <span class="st">"data_s3/WDPA"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> mon_scr) <span class="sc">%&gt;%</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(STATUS <span class="sc">!=</span> <span class="st">"Proposed"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(DESIG <span class="sc">!=</span> <span class="st">"Locally Managed Marine Area"</span>, DESIG <span class="sc">!=</span> <span class="st">"Marine Park"</span>) </span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Téléchargement du contour des zones émergées de Madagascar</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  contour_mada <span class="ot">&lt;-</span> <span class="fu">gadm</span>(<span class="at">country =</span> <span class="st">"Madagascar"</span>, <span class="at">resolution =</span> <span class="dv">1</span>, <span class="at">level =</span> <span class="dv">0</span>,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                       <span class="at">path =</span> <span class="st">"data_s3/GADM"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_as_sf</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> mon_scr)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># On sauve les objets créés pour ne pas avoir à refaire cette étape</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save</span>(aires_prot_mada, contour_mada, <span class="at">file =</span> <span class="st">"data_s3/aires_prot_mada.rds"</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>tb <span class="ot">&lt;-</span> aires_prot_mada <span class="sc">%&gt;%</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(STATUS <span class="sc">!=</span> <span class="st">"Proposed"</span>, MARINE <span class="sc">!=</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">decennie_creation =</span> STATUS_YR <span class="sc">-</span>  STATUS_YR <span class="sc">%%</span> <span class="dv">10</span>,</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">strict =</span> IUCN_CAT <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"II"</span>, <span class="st">"III"</span>, <span class="st">"IV"</span>),</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">surface_terrestre =</span> REP_AREA <span class="sc">-</span> REP_M_AREA) <span class="sc">%&gt;%</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(decennie_creation, strict) <span class="sc">%&gt;%</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">N =</span> <span class="fu">n</span>(),</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>            <span class="at">aire_totale =</span> <span class="fu">sum</span>(surface_terrestre, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="co"># On génère un rendu cartographique</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(contour_mada) <span class="sc">+</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(<span class="fu">filter</span>(aires_prot_mada)) <span class="sc">+</span> </span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"IUCN_CAT"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">title =</span> <span class="st">"Catégorie IUCN"</span>) <span class="sc">+</span></span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="co"># NB : on note les positions en majuscules quand on veut coller aux marges</span></span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_credits</span>(<span class="st">"Sources: WDPA et GADM"</span>, <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"RIGHT"</span>, <span class="st">"BOTTOM"</span>),</span>
+<span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>             <span class="at">size =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title =</span> <span class="st">"Aires protégées de Madagascar"</span>,</span>
+<span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>            <span class="co"># NB : position en minuscules pour laisser un espace avec la marge</span></span>
+<span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.position =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"top"</span>),</span>
+<span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.size =</span> taille_titres_cartes,</span>
+<span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="st">"left"</span>, <span class="st">"top"</span>),</span>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="impact_aires_protegees_madagascar_files/figure-html/Préparation%20aires%20protégées-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Certaines améliorations doivent encore être apportées, pour préciser notamment la date de création ou le statut de certaines aires =&gt; A travailler avec Jeanne notamment.</p>
+<p>Il faut aussi s’assurer qu’on filtre bien les entitées analysées selon un criète pertinent. Actuellement, on ne garde que les aires qui ont encore un statut “proposed” et on exclut les aires marines. Il pourrait toutefois sembler utile d’écarter les aires dont le statut de protection est considéré comme trop faible. Il pourrait aussi être pertinent de ne garder que les aires protégées comportant un niveau minimum de couvert forestier : autrement, cela signifie que la forêt n’est pas un habitat pertinent pour les écosystèmes que la démarche de conservation cherche à protéger dans cette aire.</p>
+</section>
+<section id="données-satellitaires" class="level3">
+<h3 class="anchored" data-anchor-id="données-satellitaires">Données satellitaires</h3>
+<p>Ici le package mapme.biodiversity développé par la KfW est particulièrement utile pour l’analyse. Il automatise en large partie le processus d’acquisition de données brutes issu de sources divers et le calcul d’indicateurs pour des périmètres définies (ici, les 120 612 hexagones du maillage du territoire malgache). Ce processus est toutefois très gourmand en ressources et on l’a réalisé sur un environnement de calcul haute performance (la plateforme SSP Cloud de l’INSEE). Les résultats de ces traitements ont été enregistrés et il ne semble pas pertinent/utile de demander aux apprenants de le refaire, ce serait beaucoup trop long.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ce qui suit jusqu'à la commande "save" ne s'execute que si le résultat n'a pas</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># déjà été généré lors d'une exécution précédente.</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="st">"data_s3/grille_mada_donnees_raster.rds"</span>)) {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">"data_s3/grille_mada_donnees_raster.rds"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Création d'un maillage du territoire émergé --------------------------------</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># On crée un cadre autour des aires protégées du pays</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  cadre_autour_mada <span class="ot">=</span> <span class="fu">st_as_sf</span>(<span class="fu">st_as_sfc</span>(<span class="fu">st_bbox</span>(aires_prot_mada)))</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cellules de 5km de rayon</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  surface_cellule <span class="ot">&lt;-</span> taille_hex <span class="sc">*</span> (<span class="fl">1e+6</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  taille_cellule <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">sqrt</span>(surface_cellule <span class="sc">/</span> ((<span class="dv">3</span> <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">3</span>) <span class="sc">/</span> <span class="dv">2</span>))) <span class="sc">*</span> <span class="fu">sqrt</span>(<span class="dv">3</span>) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">st_make_grid</span>(<span class="at">x =</span> cadre_autour_mada,</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>                              <span class="at">cellsize =</span> taille_cellule,</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>                              <span class="at">square =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># On découpe la grille pour ne garder que les terres émergées</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>  cellules_emergees <span class="ot">&lt;-</span> <span class="fu">st_intersects</span>(contour_mada, grille_mada) <span class="sc">%&gt;%</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unlist</span>()</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> grille_mada[<span class="fu">sort</span>(cellules_emergees)] <span class="sc">%&gt;%</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_sf</span>()</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Traitement des données satellitaires avec {mapme.bidiversity}---------------</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Constitution d'un portefeuille (voir la documentation)</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">init_portfolio</span>(<span class="at">x =</span> grile_mada, </span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>                                <span class="at">years =</span> <span class="dv">2000</span><span class="sc">:</span><span class="dv">2020</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>                                <span class="at">outdir =</span> <span class="st">"data_s3/mapme"</span>,</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>                                <span class="at">cores =</span> <span class="dv">24</span>,</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>                                <span class="at">add_resources =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>                                <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Acquisition des données satellitaires requises (rasters) ------------------- </span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Données d'accessibilité de Nelson et al. (2018)</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span>  <span class="fu">get_resources</span>(<span class="at">x =</span> grille_mada, <span class="at">resource =</span> <span class="st">"nelson_et_al"</span>,  </span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>                                <span class="at">range_traveltime =</span> <span class="st">"5k_110mio"</span>)</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Données de qualité des sols (uniquement teneur )</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span>  <span class="fu">get_resources</span>(<span class="at">x =</span> grille_mada,</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>                                <span class="at">resources =</span> <span class="st">"soilgrids"</span>,  <span class="at">layers =</span> <span class="st">"clay"</span>, </span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>                                <span class="at">depths =</span> <span class="st">"5-15cm"</span>, <span class="at">stats =</span> <span class="st">"mean"</span>)</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Données sur le couvert forestier de Global Forest Watch</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">get_resources</span>(<span class="at">x =</span> grille_mada, </span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>                               <span class="at">resources =</span> <span class="fu">c</span>(<span class="st">"gfw_treecover"</span>, <span class="st">"gfw_lossyear"</span>, </span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>                                             <span class="st">"gfw_emissions"</span>))</span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Modèle numérique de terrain SRTM de la NASA</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">get_resources</span>(<span class="at">x =</span> grille_mada, <span class="at">resource =</span> <span class="st">"nasa_srtm"</span>)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Données de feux</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">get_resources</span>(<span class="at">x =</span> grille_mada, <span class="at">resource =</span> <span class="st">"nasa_firms"</span>,</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>                               <span class="at">instrument =</span> <span class="st">"MODIS"</span>)</span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcul des indicateurs -----------------------------------------------------</span></span>
+<span id="cb4-53"><a href="#cb4-53" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-54"><a href="#cb4-54" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Indicateurs d'accessibilité</span></span>
+<span id="cb4-55"><a href="#cb4-55" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">calc_indicators</span>(<span class="at">x =</span> grille_mada,</span>
+<span id="cb4-56"><a href="#cb4-56" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"traveltime"</span>,  <span class="at">stats_accessibility =</span> <span class="st">"mean"</span>,</span>
+<span id="cb4-57"><a href="#cb4-57" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">engine =</span> <span class="st">"extract"</span>)</span>
+<span id="cb4-58"><a href="#cb4-58" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Indicateurs de sols</span></span>
+<span id="cb4-59"><a href="#cb4-59" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-60"><a href="#cb4-60" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">calc_indicators</span>(<span class="at">x =</span> grille_mada,</span>
+<span id="cb4-61"><a href="#cb4-61" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"soilproperties"</span>, <span class="at">stats_soil =</span> <span class="st">"mean"</span>, </span>
+<span id="cb4-62"><a href="#cb4-62" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">engine =</span> <span class="st">"extract"</span>)</span>
+<span id="cb4-63"><a href="#cb4-63" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb4-64"><a href="#cb4-64" aria-hidden="true" tabindex="-1"></a>   <span class="co"># Indicateurs de couvert forestier</span></span>
+<span id="cb4-65"><a href="#cb4-65" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">calc_indicators</span>(<span class="at">x =</span> grille_mada,</span>
+<span id="cb4-66"><a href="#cb4-66" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">indicators =</span> <span class="st">"treecover_area_and_emissions"</span>, </span>
+<span id="cb4-67"><a href="#cb4-67" aria-hidden="true" tabindex="-1"></a>                                 <span class="at">min_cover =</span> <span class="dv">10</span>, <span class="at">min_size =</span> <span class="dv">1</span>)</span>
+<span id="cb4-68"><a href="#cb4-68" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Indicateurs de relief de terrain</span></span>
+<span id="cb4-69"><a href="#cb4-69" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">calc_indicators</span>(<span class="at">x =</span> grille_mada,</span>
+<span id="cb4-70"><a href="#cb4-70" aria-hidden="true" tabindex="-1"></a>                               <span class="at">indicators =</span> <span class="fu">c</span>(<span class="st">"tri"</span>, <span class="st">"elevation"</span>),</span>
+<span id="cb4-71"><a href="#cb4-71" aria-hidden="true" tabindex="-1"></a>                               <span class="at">stats_tri =</span> <span class="st">"mean"</span>, <span class="at">stats_elevation =</span> <span class="st">"mean"</span>)</span>
+<span id="cb4-72"><a href="#cb4-72" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Indicateurs d'incendies</span></span>
+<span id="cb4-73"><a href="#cb4-73" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">calc_indicators</span>(<span class="at">x =</span> grille_mada,</span>
+<span id="cb4-74"><a href="#cb4-74" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"active_fire_counts"</span>)</span>
+<span id="cb4-75"><a href="#cb4-75" aria-hidden="true" tabindex="-1"></a>  grille_mada <span class="ot">&lt;-</span> <span class="fu">calc_indicators</span>(<span class="at">x =</span> grille_mada,</span>
+<span id="cb4-76"><a href="#cb4-76" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"active_fire_properties"</span>)</span>
+<span id="cb4-77"><a href="#cb4-77" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-78"><a href="#cb4-78" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sauvegarde du résultat</span></span>
+<span id="cb4-79"><a href="#cb4-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save</span>(grille_mada, <span class="at">file =</span> <span class="st">"data_s3/grille_mada_donnees_raster.rds"</span>)</span>
+<span id="cb4-80"><a href="#cb4-80" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Le maillage est trop fin pour être visible à l’échelle du pays, mais on peut l’observer en zoomant sur une zone spécifique.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On compte le nombre d'hexagones</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n_hex <span class="ot">&lt;-</span> <span class="fu">length</span>(grille_mada)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Carte pour visualiser le résultat --------------------------------------------</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="do">## Carte de droite : zoom sur une zone spécifique-------------------------------</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># On part d'un dataframe contenant une adresse</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>nom_centre_zoom <span class="ot">&lt;-</span> <span class="st">"Maroantsetra"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>zoom_centre <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">address =</span> nom_centre_zoom) <span class="sc">%&gt;%</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geocode</span>(address, <span class="at">method =</span> <span class="st">"osm"</span>) <span class="sc">%&gt;%</span> <span class="co"># on retrouve sa localisation xy</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(long, lat) <span class="sc">%&gt;%</span> <span class="co"># on ne garde que le xy</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>() <span class="sc">%&gt;%</span> <span class="co"># qu'on passe en format numérique attendu par st_point</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_point</span>() <span class="sc">%&gt;%</span> <span class="co"># On le spécifie en point</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sfc</span>(<span class="at">crs =</span> <span class="st">"EPSG:4326"</span>) </span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co"># On crée une boîte de 100km </span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>zoom_boite <span class="ot">&lt;-</span> zoom_centre <span class="sc">%&gt;%</span> <span class="co"># On repart du centre</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_buffer</span>(<span class="at">dist =</span> <span class="dv">50000</span>) <span class="sc">%&gt;%</span> <span class="co"># On crée un cercle de 50km de rayon</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_make_grid</span>(<span class="at">n =</span> <span class="dv">1</span>) </span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># On filtre les alvéoles pour ne garder que celles qui sont dans le zoom</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>grille_zoom <span class="ot">&lt;-</span> <span class="fu">st_intersection</span>(grille_mada, zoom_boite)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="co"># On télécharge un fond de carte pour la carte de droite</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>fond_carte_zoom <span class="ot">&lt;-</span> <span class="fu">get_tiles</span>(zoom_boite, <span class="at">provider =</span> <span class="st">"Stamen.Terrain"</span>, </span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                             <span class="at">zoom =</span> <span class="dv">10</span>, <span class="at">crop =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a><span class="co"># On génère la carte de droite</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>carte_zoom <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(fond_carte_zoom) <span class="sc">+</span> </span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_rgb</span>() <span class="sc">+</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(grille_zoom) <span class="sc">+</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(zoom_boite) <span class="sc">+</span> </span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title =</span> <span class="fu">paste</span>(<span class="st">"Zoom sur la zone de"</span>, nom_centre_zoom),</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.size =</span> taille_titres_cartes) <span class="sc">+</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_credits</span>(<span class="fu">get_credit</span>(<span class="st">"Stamen.Toner"</span>),</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">bg.color =</span> <span class="st">"white"</span>,</span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>             <span class="at">align =</span> <span class="st">"right"</span>,</span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>             <span class="at">position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"BOTTOM"</span>))</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a><span class="do">## Carte de gauche : simple à réaliser mais hexagones non visibles -------------</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>carte_grille <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(grille_mada) <span class="sc">+</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span> </span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(zoom_boite) <span class="sc">+</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>(<span class="at">col =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">frame =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title =</span> <span class="fu">paste</span>(<span class="st">"Découpage en"</span>, n_hex,</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"hexagones de"</span>, taille_hex<span class="sc">*</span><span class="dv">2</span>, <span class="st">"km2"</span>),</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.size =</span> taille_titres_cartes)</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Assemblage des deux cartes ---------------------------------------------------</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_arrange</span>(carte_grille, carte_zoom, <span class="at">ncol =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="impact_aires_protegees_madagascar_files/figure-html/Carte%20grille%20mada-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>On peut également représenter les différentes valeurs des indicateurs générés à partir des données satellitaires.</p>
+<div class="cell" data-fig.fullwidth="true">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="st">"data_s3/grille_mada_summary.rds"</span>)) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">"data_s3/grille_mada_summary.rds"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  grille_mada_summary <span class="ot">&lt;-</span> grille_mada <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># On met à plat les données de distance</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(traveltime, soilproperties, tri, elevation),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">names_repair =</span> <span class="st">"universal"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>distance, <span class="sc">-</span>layer, <span class="sc">-</span>depth, <span class="sc">-</span>stat,  <span class="sc">-</span>active_fire_counts, </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>           <span class="sc">-</span>active_fire_properties) <span class="sc">%&gt;%</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">distance_minutes_5k_110mio =</span> minutes_mean, <span class="at">mean_clay_5_15cm =</span> mean) </span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  grille_mada_summary <span class="ot">&lt;-</span> grille_mada_summary <span class="sc">%&gt;%</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest</span>(<span class="at">cols =</span> treecover_area_and_emissions) <span class="sc">%&gt;%</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"years"</span>, <span class="at">values_from =</span> <span class="fu">c</span>(<span class="st">"treecover"</span>, <span class="st">"emissions"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">var_treecover =</span> (treecover_2020 <span class="sc">-</span> treecover_2000)<span class="sc">/</span>treecover_2000,</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">sum_emissions =</span> <span class="fu">rowSums</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"emission"</span>)), <span class="at">na.rm =</span> T)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">init_treecover_2000 =</span> treecover_2000) <span class="sc">%&gt;%</span> <span class="co"># pour le garder</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">"treecover"</span>), <span class="sc">-</span><span class="fu">starts_with</span>(<span class="st">"emission"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">treecover_2000 =</span> init_treecover_2000) <span class="sc">%&gt;%</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">relocate</span>(geometry, <span class="at">.after =</span> <span class="fu">last_col</span>())</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save</span>(grille_mada_summary, <span class="at">file =</span> <span class="st">"data_s3/grille_mada_summary.rds"</span>)</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>carte_acces <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(grille_mada_summary) <span class="sc">+</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"distance_minutes_5k_110mio"</span>,</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Distance ville (&gt;5K hab)"</span>,</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Oranges"</span>,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>          <span class="at">style =</span> <span class="st">"fisher"</span>,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.hist =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.title.size = 0.8,</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.text.size = 0.6,</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.width =</span> <span class="dv">1</span>,</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.height =</span> <span class="dv">1</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>carte_sol <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(grille_mada_summary) <span class="sc">+</span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"mean_clay_5_15cm"</span>,</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Sol argileux (5-15cm prof)"</span>,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"YlOrBr"</span>,</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.hist =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.title.size = 0.8,</span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.text.size = 0.6</span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.width =</span> <span class="dv">1</span>,</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.height =</span> <span class="dv">1</span>)</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>carte_TRI <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(grille_mada_summary) <span class="sc">+</span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"tri_mean"</span>,</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="fu">c</span>(<span class="st">"Terrain accidenté (TRI)"</span>),</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Blues"</span>,</span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.hist =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.title.size = 0.8,</span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.text.size = 0.6,</span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.width =</span> <span class="dv">1</span>,</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.height =</span> <span class="dv">1</span>)</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>carte_alt <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(grille_mada_summary) <span class="sc">+</span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"elevation_mean"</span>,</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Altitude"</span>,</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Purples"</span>,</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.hist =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.title.size = 0.8,</span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.text.size = 0.6,</span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.width =</span> <span class="dv">1</span>,</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.height =</span> <span class="dv">1</span>)</span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>carte_cover <span class="ot">&lt;-</span> graph_alt <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(grille_mada_summary) <span class="sc">+</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"treecover_2000"</span>,</span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Couvert arboré en 2000"</span>,</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Greens"</span>,</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.hist =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.title.size = 0.8,</span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.text.size = 0.6,</span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.width =</span> <span class="dv">1</span>,</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.height =</span> <span class="dv">1</span>)</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>carte_loss <span class="ot">&lt;-</span> graph_alt <span class="ot">&lt;-</span> <span class="fu">tm_shape</span>(grille_mada_summary) <span class="sc">+</span></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"var_treecover"</span>,</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Perte couvert (2000-2020)"</span>,</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>          <span class="at">palette =</span> <span class="st">"Reds"</span>,</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>          <span class="at">n =</span> <span class="dv">8</span>,</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>          <span class="at">legend.hist =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.title.size = 0.8,</span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>            <span class="co"># legend.text.size = 0.6,</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.width =</span> <span class="dv">1</span>,</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.hist.height =</span> <span class="dv">1</span>)</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_arrange</span>(carte_acces, carte_sol, </span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>             carte_alt, carte_TRI, </span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>             carte_cover, carte_loss,</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>             <span class="at">ncol =</span> <span class="dv">2</span>, <span class="at">nrow =</span> <span class="dv">3</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="impact_aires_protegees_madagascar_files/figure-html/Synthèse%20données%20satellitaires-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>On notera que plusieurs autres indicateurs peuvent être calculés à partir du pabkage mapme.biodiversity:</p>
+<ul>
+<li><p>active_fire_counts: Calculate active fire counts based on NASA FIRMS polygonsactive_fire_properties: Calculate active fire properties based on NASA FIRMS polygons</p></li>
+<li><p>biome: Calculate biomes statistics (TEOW) based on WWF</p></li>
+<li><p>drought_indicator: Calculate drought indicator statistics</p></li>
+<li><p>ecoregion: Calculate terrestrial ecoregions statistics (TEOW) based on WWF</p></li>
+<li><p>landcover: Calculate area of different landcover classes</p></li>
+<li><p>mangroves_area: Calculate mangrove extent based on Global Mangrove Watch (GMW)</p></li>
+<li><p>population_count: Calculate population count statistics (Worldpop)</p></li>
+<li><p>precipitation_chirps: Calculate precipitation statistics based on CHIRPS</p></li>
+<li><p>precipitation_wc: Calculate precipitation statistics</p></li>
+<li><p>soilproperties: Calculate Zonal Soil Properties</p></li>
+<li><p>temperature_max_wc: Calculate maximum temperature statistics</p></li>
+<li><p>temperature_min_wc: Calculate minimum temperature statistics based on WorldClim</p></li>
+<li><p>traveltime: Calculate accessibility statistics</p></li>
+<li><p>treecover_area: Calculate treecover statistics</p></li>
+<li><p>treecover_area_and_emissions: Calculate treeloss statistics</p></li>
+<li><p>treecoverloss_emissions: Calculate emission statistics</p></li>
+<li><p>tri: Calculate Terrain Ruggedness Index (TRI) statistics</p></li>
+</ul>
+</section>
+<section id="croisement-des-données-daires-protégées-et-satellitaires" class="level3">
+<h3 class="anchored" data-anchor-id="croisement-des-données-daires-protégées-et-satellitaires">Croisement des données d’aires protégées et satellitaires</h3>
+<p>On peut maintenant associer les données d’aires protégées aux hexagones afin de les croiser avec les indicateurs issus des données satellitaries déjà calculés pour ces hexagones.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="fu">file.exists</span>(<span class="st">"data_s3/grille_mada_summary_AP.rds"</span>)) {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">load</span>(<span class="st">"data_s3/grille_mada_summary_AP.rds"</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Le code suivant va asocier les hexagones aux aires protégées en se référant</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># aux AP par leur rang dans la table des AP. On voudra plutôt leur identifiant, </span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># alors on crée une table d'équivalence rang/identifiant </span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  aires_prot_mada_rang_id <span class="ot">&lt;-</span> aires_prot_mada <span class="sc">%&gt;%</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_drop_geometry</span>() <span class="sc">%&gt;%</span> <span class="co"># Enlève l'information spatiale</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">AP_ligne =</span> <span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> <span class="co"># Intègre le numéro de ligne dans un champ</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(AP_ligne, WDPAID) <span class="co"># On ne garde que le numéro de ligne et l'identifiant</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Pour chaque hexagone, on va maintenant identifier s'ils touchent ("intersect")</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># ou s'ils sont strictiement inclus dans ("within") une aire protégé</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  grille_mada_summary_AP <span class="ot">&lt;-</span> grille_mada_summary <span class="sc">%&gt;%</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> mon_scr) <span class="sc">%&gt;%</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">AP_ligne =</span> <span class="fu">st_intersects</span>(., aires_prot_mada), <span class="co"># liste des n° de lignes d'AP qui recoupent</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">AP_ligne =</span> <span class="fu">map</span>(AP_ligne, <span class="dv">1</span>), <span class="co"># On extrait le 1° élément de la liste (toutes n'ont qu'1 élément)</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>           <span class="at">AP_ligne =</span> <span class="fu">as.integer</span>(<span class="fu">as.character</span>(AP_ligne))) <span class="sc">%&gt;%</span>  <span class="co"># formattage en numérique</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">left_join</span>(aires_prot_mada_rang_id, <span class="at">by =</span> <span class="st">"AP_ligne"</span>) <span class="sc">%&gt;%</span> <span class="co"># récupère l'id de l'AP</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">WDPAID_touche =</span> WDPAID) <span class="sc">%&gt;%</span> <span class="co"># on renomme pour différentier</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">AP_ligne =</span> <span class="fu">st_within</span>(., aires_prot_mada),</span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>           <span class="at">AP_ligne =</span> <span class="fu">map</span>(AP_ligne, <span class="dv">1</span>),</span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>           <span class="at">AP_ligne =</span> <span class="fu">as.integer</span>(<span class="fu">as.character</span>(AP_ligne))) <span class="sc">%&gt;%</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>    <span class="fu">left_join</span>(aires_prot_mada_rang_id, <span class="at">by =</span> <span class="st">"AP_ligne"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">rename</span>(<span class="at">WDPAID_inclus =</span> WDPAID) <span class="sc">%&gt;%</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(<span class="sc">-</span>AP_ligne) </span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>  grille_mada_summary_AP <span class="ot">&lt;-</span> grille_mada_summary_AP <span class="sc">%&gt;%</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_sf</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">position_ap =</span> <span class="fu">ifelse</span>(<span class="fu">is.na</span>(WDPAID_touche), <span class="st">"Extérieur"</span>,</span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a>                                <span class="fu">ifelse</span>(<span class="sc">!</span><span class="fu">is.na</span>(WDPAID_inclus), <span class="st">"Intérieur"</span>,</span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"Frontière"</span>))) <span class="sc">%&gt;%</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">relocate</span>(geometry, <span class="at">.after =</span> <span class="fu">last_col</span>()) </span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">save</span>(grille_mada_summary_AP, <span class="at">file =</span> <span class="st">"data_s3/grille_mada_summary_AP.rds"</span>)</span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>  haven<span class="sc">::</span><span class="fu">write_dta</span>(<span class="fu">st_drop_geometry</span>(grille_mada_summary_AP), </span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>                   <span class="at">path =</span> <span class="st">"data_s3/grille_mada_summary_AP.dta"</span>)</span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Une vue après classification</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(grille_mada_summary_AP) <span class="sc">+</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"position_ap"</span>, <span class="at">title =</span> <span class="st">"par rapport aux aires protégées"</span>) <span class="sc">+</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">main.title =</span> <span class="st">"Localisation des hexagones"</span>,</span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>            <span class="co"># NB : position en minuscules pour laisser un espace avec la marge</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.position =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"top"</span>),</span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.size =</span> taille_titres_cartes,</span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="st">"left"</span>, <span class="st">"top"</span>),</span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="impact_aires_protegees_madagascar_files/figure-html/Jointure%20aires%20protégées%20et%20données%20satellitaires-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>En plus d’un format natif R (rds), on a aussi enregistré l’export au format Stata (.dta)</p>
+</section>
+</section>
+<section id="estimation-de-limpact" class="level2">
+<h2 class="anchored" data-anchor-id="estimation-de-limpact">Estimation de l’impact</h2>
+<p>Première approche d’appariement “naïve”</p>
+<p>Une procédure détaillée est proposée dans <a href="https://github.com/openkfw/mapme.protectedareas" class="uri">https://github.com/openkfw/mapme.protectedareas</a></p>
+<p>On commence ici par une approche naïve, dans le sens où on apparie simplement les zones dans les aires protégées avec les zones hors aires protégées pour expliquer le principe du matching (“appariement”, en français). On verra ensuite que cette approche est trop simpliste pour être valide et qu’il faut réfléchir à la population cible, aux variables d’appariement et au recouvrement entre les groupes de traitement et de contrôle.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On référence le nom des variables qui vont servir à l'analyse</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>variables_analyse <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"assetid"</span>,<span class="st">"treatment"</span>,<span class="st">"distance_minutes_5k_110mio"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"tri_mean"</span>, <span class="st">"elevation_mean"</span>, <span class="st">"mean_clay_5_15cm"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                       <span class="st">"treecover_2000"</span>, <span class="st">"var_treecover"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># On renomme le ficher 'df' (dataframe) : plus concis dans les commandes ensuite</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> grille_mada_summary_AP <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># On supprime toutes les lignes pour lesquelles au moins 1 valeur variable </span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># est manquante parmi les variables d'analyse</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(<span class="fu">any_of</span>(variables_analyse)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">treatment =</span> position_ap <span class="sc">==</span> <span class="st">"Intérieur"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Get propensity scores</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>glm_out <span class="ot">&lt;-</span> <span class="fu">glm</span>(treatment <span class="sc">~</span> </span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                 distance_minutes_5k_110mio <span class="sc">+</span> </span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                 mean_clay_5_15cm <span class="sc">+</span> </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                 tri_mean <span class="sc">+</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                 elevation_mean <span class="sc">+</span> </span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                 treecover_2000,  <span class="co"># Très étrange</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>               <span class="at">family =</span> <span class="fu">binomial</span>(<span class="at">link =</span> <span class="st">"probit"</span>),</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>               <span class="at">data =</span> df)</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="fu">stargazer</span>(glm_out,</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>          <span class="at">summary =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>          <span class="at">type =</span> <span class="st">"text"</span>,</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">"Probit regression for matching frame "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Probit regression for matching frame
+======================================================
+                               Dependent variable:    
+                           ---------------------------
+                                    treatment         
+------------------------------------------------------
+distance_minutes_5k_110mio          0.0004***         
+                                    (0.00003)         
+                                                      
+mean_clay_5_15cm                    -0.042***         
+                                     (0.002)          
+                                                      
+tri_mean                            0.015***          
+                                     (0.001)          
+                                                      
+elevation_mean                      0.0003***         
+                                    (0.00002)         
+                                                      
+treecover_2000                      0.002***          
+                                    (0.00004)         
+                                                      
+Constant                            -1.449***         
+                                     (0.043)          
+                                                      
+------------------------------------------------------
+Observations                         117,610          
+Log Likelihood                     -23,367.050        
+Akaike Inf. Crit.                  46,746.090         
+======================================================
+Note:                      *p&lt;0.1; **p&lt;0.05; ***p&lt;0.01</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m_out <span class="ot">&lt;-</span> <span class="fu">matchit</span>(treatment <span class="sc">~</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>                   distance_minutes_5k_110mio <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>                   mean_clay_5_15cm <span class="sc">+</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                   tri_mean <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>                   elevation_mean <span class="sc">+</span> </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                   treecover_2000,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> df,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">method =</span> <span class="st">"nearest"</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">replace =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                 <span class="co"># exact = ~ as.factor(NAME_0),</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">distance =</span> <span class="st">"glm"</span>, </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                 <span class="at">discard =</span> <span class="st">"both"</span>, <span class="co"># common support: drop units from both groups </span></span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>                 <span class="at">link =</span> <span class="st">"probit"</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(m_out)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>A matchit object
+ - method: 1:1 nearest neighbor matching with replacement
+ - distance: Propensity score [common support]
+             - estimated with probit regression
+ - common support: units from both groups dropped
+ - number of obs.: 117610 (original), 12731 (matched)
+ - target estimand: ATT
+ - covariates: distance_minutes_5k_110mio, mean_clay_5_15cm, tri_mean, elevation_mean, treecover_2000</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># print(summary(m_out, un = FALSE))</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>bal_table <span class="ot">&lt;-</span> <span class="fu">bal.tab</span>(m_out, <span class="at">un =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bal_table)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call
+ matchit(formula = treatment ~ distance_minutes_5k_110mio + mean_clay_5_15cm + 
+    tri_mean + elevation_mean + treecover_2000, data = df, method = "nearest", 
+    distance = "glm", link = "probit", discard = "both", replace = TRUE)
+
+Balance Measures
+                               Type Diff.Un Diff.Adj
+distance                   Distance  0.6743   0.0001
+distance_minutes_5k_110mio  Contin.  0.3110  -0.0441
+mean_clay_5_15cm            Contin.  0.0229  -0.0025
+tri_mean                    Contin.  0.4029  -0.0306
+elevation_mean              Contin.  0.2753  -0.0022
+treecover_2000              Contin.  0.7104   0.0262
+
+Sample sizes
+                       Control Treated
+All                  110951.      6659
+Matched (ESS)          5439.42    6650
+Matched (Unweighted)   6081.      6650
+Unmatched            104721.         0
+Discarded               149.         9</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>m_data <span class="ot">&lt;-</span> <span class="fu">match.data</span>(m_out) <span class="sc">%&gt;%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_sf</span>()</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># On visualise les données appareillées</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(contour_mada) <span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>() <span class="sc">+</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(m_data) <span class="sc">+</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="at">col =</span> <span class="st">"treatment"</span>, <span class="at">palette =</span> <span class="st">"Set1"</span>, <span class="at">title =</span> <span class="st">"Groupes d'appariement"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Contrôle"</span>, <span class="st">"Traitement"</span>)) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title =</span> <span class="st">"Localisation des groupes de traitement et de contrôle"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.position =</span> <span class="fu">c</span>(<span class="st">"center"</span>, <span class="st">"top"</span>),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">main.title.size =</span> taille_titres_cartes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="impact_aires_protegees_madagascar_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Première approche : critiquer la méthode employée ici.</p>
+<section id="pistes-damélioration" class="level3">
+<h3 class="anchored" data-anchor-id="pistes-damélioration">Pistes d’amélioration</h3>
+<ul>
+<li><p>Exclure les Aires protégées avant 2000, voire 2003.</p></li>
+<li><p>On pourrait éventuelement prendre comme variables de contrôle le couvert forestier en 2000 et le taux de couverture entre 2000 et 2003.</p></li>
+<li><p>Gros problème : toutes les aires protégées créées à partir de 2003 n’ont pas de</p></li>
+<li><p>Schielein et al.&nbsp;excluent UNESCO MAB Biosphere reserves: pourquoi ?</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="a-faire" class="level1">
+<h1>A faire</h1>
+<ul>
+<li><p>Préciser les types d’aires protégées à conserver</p></li>
+<li><p>Corriger/enrichir les métadonnées des aires protégées avec les informations recueillies par Jeanne</p></li>
+<li><p>Ajouter une biblio</p></li>
+<li><p>Vérifier la préséance lorsque un hexa recoupe plusieurs AP (rang IUCN en premier)</p></li>
+<li><p>Expliciter les unités</p></li>
+<li><p>Expliciter le choix de la teneur en argile du sol pour l’analyse</p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
