@@ -13,6 +13,7 @@ execute:
   error: false
 editor_options: 
   chunk_output_type: console
+bibliography: bibliography_tany_vao.bib
 ---
 
 ```{r Installation et chargement des librairies requises}
@@ -101,6 +102,21 @@ Les formateurs distribuent aux participant un article court sur l'évaluation de
 
 > Synthèse théorique : tableau complété de revue de la littérature.
 
+| Référence                    | Titre | Discipline | Périmètre | Données | Unités | Echantillon | Méthode | Traitement | Outcomes | Contrôles | Résultats |
+|------|------|------|------|------|------|------|------|------|------|------|------|
+| [@spracklen_global_2015]     |       |            |           |         |        |             |         |            |          |           |           |
+| [@joppa_global_2011]         |       |            |           |         |        |             |         |            |          |           |           |
+| [@desbureaux_common_2016]    |       |            |           |         |        |             |         |            |          |           |           |
+| [@gimenez_impact_2012]       |       |            |           |         |        |             |         |            |          |           |           |
+| [@nelson_effectiveness_2011] |       |            |           |         |        |             |         |            |          |           |           |
+| [@waeber_how_2016]           |       |            |           |         |        |             |         |            |          |           |           |
+|                              |       |            |           |         |        |             |         |            |          |           |           |
+|                              |       |            |           |         |        |             |         |            |          |           |           |
+|                              |       |            |           |         |        |             |         |            |          |           |           |
+|                              |       |            |           |         |        |             |         |            |          |           |           |
+
+: Evaluations de l'impact des aires protégées sur la déforestation
+
 ```{r Tableau de revue de littérature}
 # On initie un tableau vide
 revue_litt <- tibble::tibble(
@@ -139,7 +155,7 @@ Ouvrir les participants sur la diversité des données qui peuvent être mobilis
 
 -   Exercice : recherche de source de données pertinentes pour étudier l'impact des aires protégées sur la déforestation.
 
-Présentation d'outils facilitant la collecte : Google Earth Engine (catalogue) et mapme.biodiversity.
+Présentation d'outils facilitant la collecte : Google Earth Engine (catalogue) et mapme.biodiversity [@gorgen_mapmebiodiversity_2022].
 
 -   Exercice : essai de recherche de données.
 
@@ -175,7 +191,7 @@ Comparaison des résultats en sortie.
 
 ### Séance 7 - Interprétation des résultats et discussion (1/2 journée ?)
 
-# Cas d'étude : évaluation de l'impact des aires protégées sur la déforestation àà madagascar
+# Cas d'étude : évaluation de l'impact des aires protégées sur la déforestation à madagascar
 
 ## Environnement et paramétrages
 
@@ -695,3 +711,5 @@ Première approche : critiquer la méthode employée ici.
 -   Expliciter les unités
 
 -   Expliciter le choix de la teneur en argile du sol pour l'analyse
+
+# Bibliographie
