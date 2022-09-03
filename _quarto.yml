@@ -1,0 +1,6 @@
+project:
+  title: "deforestation_madagascar_qmd"
+  type: website
+  output-dir: docs
+editor: visual
+
