@@ -6,6 +6,7 @@ format:
   html:
     code-fold: true
     toc: true
+    output-file: index.html
 editor: visual
 execute:
   warning: false
@@ -158,11 +159,21 @@ Présentation de l'étude de cas sur les aires protégées à Madagascar : secti
 
 ### Séance 6 - analyse de données (2 jours ?)
 
-Les logiciels et les ressources d'auto-formation. R Stata Python Google Earth Engine
+Reprise des différentes approches d'inférence causale. Focus sur les méthodes de matching. Présentation de l'approche "naïve" de matching.
 
-Concevoir un questionnaire
+-   Discussion : interprétation du code exécuté.
 
-Séance 7 - Interprétation des résultats et discussion (1/2 journée ?)
+-   Exercice : que faut-il comparer avec quoi.
+
+Présentation des principes de base du matching.
+
+-   Exercice : lister les méthodes de matching.
+
+Comparaison des résultats en sortie.
+
+> Synthèse : importance d'avoir une discussion de fond : ATT, ATE, sélection des approches, validation.
+
+### Séance 7 - Interprétation des résultats et discussion (1/2 journée ?)
 
 # Cas d'étude : évaluation de l'impact des aires protégées sur la déforestation àà madagascar
 
