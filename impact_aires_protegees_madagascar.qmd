@@ -6,6 +6,7 @@ format:
   html:
     code-fold: true
     toc: true
+    toc-location: left
     output-file: index.html
 editor: visual
 execute:
@@ -18,8 +19,8 @@ bibliography: bibliography_tany_vao.bib
 
 ```{r Installation et chargement des librairies requises}
 # # Le package est en cours de développement, toujours installer la version en cours
-remotes::install_github("mapme-initiative/mapme.biodiversity", 
-                        upgrade = "always")
+# remotes::install_github("mapme-initiative/mapme.biodiversity", 
+#                         upgrade = "always")
 
 librairies_requises <- c( # On liste les librairies dont on a besoin
   "dplyr", # Pour faciliter la manipulation de données tabulaires
@@ -295,7 +296,7 @@ if (file.exists("data_s3/grille_mada_donnees_raster.rds")) {
   # Traitement des données satellitaires avec {mapme.bidiversity}---------------
   
   # Constitution d'un portefeuille (voir la documentation)
-  grille_mada <- init_portfolio(x = grile_mada, 
+  grille_mada <- init_portfolio(x = grille_mada, 
                                 years = 2000:2020,
                                 outdir = "data_s3/mapme",
                                 cores = 24,
@@ -355,7 +356,7 @@ Le maillage est trop fin pour être visible à l'échelle du pays, mais on peut 
 
 ```{r Carte grille mada}
 # On compte le nombre d'hexagones
-n_hex <- length(grille_mada)
+n_hex <- nrow(grille_mada)
 # Carte pour visualiser le résultat --------------------------------------------
 
 ## Carte de droite : zoom sur une zone spécifique-------------------------------
@@ -401,7 +402,7 @@ carte_grille <- tm_shape(grille_mada) +
   tm_borders(col = "red") +
   tm_layout(frame = FALSE) +
   tm_layout(main.title = paste("Découpage en", n_hex,
-                               "hexagones de", taille_hex*2, "km2"),
+                               "hexagones de", taille_hex, "km2"),
             main.title.size = taille_titres_cartes)
 
 # Assemblage des deux cartes ---------------------------------------------------
