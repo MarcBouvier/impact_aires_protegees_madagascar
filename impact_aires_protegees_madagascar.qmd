@@ -701,6 +701,10 @@ Première approche : critiquer la méthode employée ici.
 
 # A faire
 
+-   Table Date de création
+
+-   
+
 -   Préciser les types d'aires protégées à conserver
 
 -   Corriger/enrichir les métadonnées des aires protégées avec les informations recueillies par Jeanne
