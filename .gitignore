@@ -4,3 +4,4 @@
 .Ruserdata
 data_s3/*
 /.quarto/
+*.pdf
