@@ -6,7 +6,7 @@ REPO_URL=https://github.com/fBedecarrats/impact_aires_protegees_madagascar # As 
 
 # Git
 git clone $REPO_URL $WORK_DIR
-chown -R rstudio:users $WORK_DIR
+chown -R onyxia:users $WORK_DIR
 
 # copy files from S3 
 mc cp -r s3/fbedecarrats/diffusion/deforestation_madagascar/data_s3 $WORK_DIR
