@@ -2,8 +2,18 @@
 
 # Install quarto dev version
 export QUARTO_VERSION="1.2.174"
-curl -o quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb
-sudo gdebi quarto-linux-amd64.deb
+
+sudo mkdir -p /opt/quarto/${QUARTO_VERSION}
+
+sudo curl -o quarto.tar.gz -L \
+    "https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.tar.gz"
+
+sudo tar -zxvf quarto.tar.gz \
+    -C "/opt/quarto/${QUARTO_VERSION}" \
+    --strip-components=1
+
+sudo rm quarto.tar.gz
+
 
 
 # Create variables
