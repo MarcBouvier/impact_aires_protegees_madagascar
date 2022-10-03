@@ -19,7 +19,7 @@ chown -R onyxia:users $WORK_DIR
     echo \
     "
     setHook('rstudio.sessionInit', function(newSession) {
-        if (newSession && !identical(getwd(), '$WORK_DIR'))
+        if (newSession && !identical(getwd(), \"'$WORK_DIR'\"))
         {
             message('On charge directement le bon projet :-) ')
             rstudioapi::openProject('$WORK_DIR')
