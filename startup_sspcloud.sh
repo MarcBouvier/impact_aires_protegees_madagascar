@@ -26,4 +26,4 @@ chown -R rstudio:users $WORK_DIR
             rstudioapi::applyTheme('Merbivore')
             }
             }, action = 'append')
-            " >> /home/rstudio/.Rprofile
+            " >> /home/onyxia/work/.Rprofile
