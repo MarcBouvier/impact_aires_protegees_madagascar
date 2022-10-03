@@ -12,7 +12,7 @@ chown -R onyxia:users $WORK_DIR
 mc cp -r s3/fbedecarrats/diffusion/deforestation_madagascar/data_s3 $WORK_DIR
 
 # Again to give ritghs also in the data subfolder 
-chown -R rstudio:users $WORK_DIR
+chown -R onyxia:users $WORK_DIR
 
 # launch RStudio in the right project
 # Copied from InseeLab UtilitR
@@ -22,7 +22,7 @@ chown -R rstudio:users $WORK_DIR
         if (newSession && identical(getwd(), path.expand('~')))
         {
             message('On charge directement le bon projet :-) ')
-            rstudioapi::openProject('~/impact_aires_protegees_madagascar')
+            rstudioapi::openProject('/home/onyxia/work/impact_aires_protegees_madagascar')
             rstudioapi::applyTheme('Merbivore')
             }
             }, action = 'append')
