@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Install quarto dev version
+git clone https://github.com/quarto-dev/quarto-cli
+cd quarto-cli
+./configure.sh
+
+
 # Create variables
 WORK_DIR=/home/onyxia/work/impact_aires_protegees_madagascar
 REPO_URL=https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com/fBedecarrats/impact_aires_protegees_madagascar # As initial
