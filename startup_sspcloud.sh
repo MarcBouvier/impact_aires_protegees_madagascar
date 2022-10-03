@@ -22,7 +22,7 @@ chown -R onyxia:users $WORK_DIR
         if (newSession && identical(getwd(), path.expand('~')))
         {
             message('On charge directement le bon projet :-) ')
-            rstudioapi::openProject('/home/onyxia/work/impact_aires_protegees_madagascar')
+            rstudioapi::openProject('/home/onyxia/work/impact_aires_protegees_madagascar/impact_aires_protegees_madagascar.Rproj')
             rstudioapi::applyTheme('Merbivore')
             }
             }, action = 'append')
