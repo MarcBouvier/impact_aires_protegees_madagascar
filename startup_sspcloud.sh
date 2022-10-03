@@ -2,7 +2,7 @@
 
 # Create variables
 WORK_DIR=/home/onyxia/work/impact_aires_protegees_madagascar
-REPO_URL=https://github.com/fBedecarrats/impact_aires_protegees_madagascar # As initial
+REPO_URL=https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com/fBedecarrats/impact_aires_protegees_madagascar # As initial
 
 # Git
 git clone $REPO_URL $WORK_DIR
