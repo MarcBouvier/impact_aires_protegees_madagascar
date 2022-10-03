@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Create variables
-WORK_DIR=/home/rstudio/impact_aires_protegees_madagascar
+WORK_DIR=/home/work/impact_aires_protegees_madagascar
 REPO_URL=https://github.com/fBedecarrats/impact_aires_protegees_madagascar # As initial
 
 # Git
