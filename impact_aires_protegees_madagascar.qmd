@@ -18,6 +18,22 @@ editor_options:
 bibliography: bibliography_tany_vao.bib
 ---
 
+# Introduction
+
+Ce contenu a été développé afin de servir de support pédagogique pour l'atelier "évaluation des politiques" de la session 2022 des Universités en sciences sociales *Tany Vao*. Les universités Tany Vao visent à dispenser une formation à la recherche de haut niveau à l'attention de doctorants et jeunes chercheurs de Madagascar et d\'Afrique de l\'Ouest. Après deux jours de plénières, les participants se répartissent pendant cinq jours entre quatre ateliers parallèles : socioéconomie, éthnoégologie, anthropologie et évaluation des politiques.
+
+L'atelier "évaluation des politiques" adopte une approche axée l'économétrie et la science des données. Il alterne des sessions théorique et pratique. Conformément au thème phare de Tany Vao pour 2022 ("environnement et sociétés"), le cas d'étude choisi pour servir de fil rouge à ces travaux est l'impact des aires protégées sur la déforestation.
+
+## Environnement
+
+Les éléments ci-dessous constituent le support pour les sessions pratiques de cet atelier. Il sont réalisée selon une approche ouverte, repoductible fondée sur un document de type notebook [@bedecarrats_alternative_2017]. L'analyse est réalisée en R, qui est à la fois un logiciel et un langage open sources dédiés à l'analyse de données. Les traitements sont réalisés en Quarto. Le même code source peut générer un rendu en LaTeX/PDF, HTML ou Word.
+
+On s'appuie sur le package R {mapme.biodiversity}, développé par la KfW dans le cadre de l'initiative commune MAPME qui associe la KfW et l'AFD. Le package {mapme.biodiversity} facilite l'acquisition et la préparation d'un grand nombre de données (CHIRPS, Global Forest Watch, FIRMS, SRTM, Worldpop...) et calculer un grand nombre d'indicateurs de manière harmonisée (active_fire_counts, biome classification, land cover classification, population count, precipitation, soil properties, tree cover loss, travel time...). Une documentation riche est disponible sur le portail dédié du package en question [@kluve_kfw_2022].
+
+On mobilise aussi les codes d'analyse d'impact développés par la même équipe et mise à disposition dans le dépôt Github: <https://github.com/openkfw/mapme.protectedareas>. Le code développé par l'équipe est assez complexe. A des fins pédagogiques et pour s'assurer qu'on l'a bien compris, on propose ici une version simplifiée (en cours de développement)
+
+Les sources pour l'ensemble du code source et du texte du présent document est accessible sur Github à l'adresse suivante : <https://github.com/fBedecarrats/deforestation_madagascar>. Les analyses sont menées sur la plateforme SSP Cloud, mise à disposition par l'INSEE pour les data scientist travaillant pour des administrations publiques. Il s'agit d'une instance de stockage de données massif (S3) et de calcul haute performance (cluster Kubernetes) disposant d'une interface simplifiée permettant à l'utilisateur de configurer, lancer et administrer facilement des environnements de traitement de données (RStudio server, Jupyter lab ou autres...). Le code est conçu pour s'exécuter de la même manière en local sur un PC, mais la préparation des données sera certainement beaucoup plus longue à exécuter.
+
 ```{r Installation et chargement des librairies requises}
 # # Le package est en cours de développement, toujours installer la version en cours
 # remotes::install_github("mapme-initiative/mapme.biodiversity", 
@@ -60,152 +76,9 @@ taille_titres_cartes = 0.8
 options(scipen =999)
 ```
 
-## Idées pour la structuration du cours
+## Mode d'emploi
 
-## Principe d'organisation
 
-Les ateliers dureront 5 jours, suivis d'1/2 journée de restitution, avec 25 participants par atelier (\~125 au total). On veillera à diviser l'atelier en sous-groupes en essayant d'avoir dans chaque groupe au moins un participant ayant quelques compétences économétrie et un participant capable de déchiffrer un texte en anglais.
-
-Pour capter et retenir l'attention d'apprenants ayant des niveaux hétérogène, la proposition serait d'alterner des séances très spécifiques/concrètes avec des séances plus théoriques/méthodologiques. On pourrait ainsi avoir une approche itérative, avec une durée des sections qui reste à déterminer (entre 1/2 et 1 journée ?).
-
-## Programme (première ébauche à discuter)
-
-Le programme qui suit n'est qu'une proposition pour alimenter la réflexion collective :
-
-### Section 1 - Définition des objectifs de l'évaluation (1/4 journée ?)
-
-Qu'est-ce qu'une évaluation d'impact au sens économétrique du terme ? Quels sont les autres types d'évaluation et quelle est la différence ? Place centrale d'une question évaluative précise pour les évaluations d'impact : impact de quoi (intervention), sur qui (groupe de traitement), sur quoi (variable de résultat). Les EI évaluent un mode d'intervention, pas un projet en particulier : enjeux de validité interne et validité externe.
-
--   Exercice : Formuler des questions se prêtant à une évaluation d'impact sur des enjeux de conservation.
-
--   Discussion : Approches évaluatives différentes qu'on peut porter avec d'autres méthodes (approches quali ou évaluation "classique").
-
-> Synthèse : introduction succincte au formalisme des équations et aux DAG.
-
-### Séance 2 - Recherche bibliographique (1/4 journée ?)
-
-Compte tenu de la portée générale des EI, il n'est pas pertinent de les mener pour chaque projet/situation particulière : il est donc essentiel de commencer par une bonne revue de littérature pour savoir si le mode d'intervention qui nous intéresse a déjà été évalué dans un contexte analogue. Cette session présente les outils et méthodes de revue de littérature applicables aux évaluations d'impact.
-
-Google Scholar : présentation de l'outil et recommandations pour trouver des évaluations d'impact pertinentes (recherche avancée, similaires et citations).
-
--   Exercice : utiliser Google Scholar pour mener une revue de littérature sur le thème de l'impact des aires protégées, au niveau mondial, régional (ex. Afrique) ou national (Madagascar)
-
-Présentation des bases d'évaluation d'impact (p. ex. Campbell Collaboration). Focus sur la base d'évaluations d'impact du 3IE.
-
--   Exercice : explorer l'evidence gap map du sur la conservation des forêts : <https://gapmaps.3ieimpact.org/evidence-maps/forest-conservation-gap-map> - revue de littérature.
-
-> Synthèse théorique : Présentation rapide des revues systématiques ;: méthode, portée et limites.
-
-### Séance 3 - étude d'articles et synthèse (1/2 journée ?)
-
-Les formateurs distribuent aux participant un article court sur l'évaluation de l'impact des aires protégées sur la déforestation. Les apprenants le lisent. Les formateurs en font une synthèse en renseignant plusieurs critères : discipline des auteurs, périmètre de l'étude, données mobilisées, unités comparées, taille d'échantillon, méthode, spécifications du modèle (variable de traitement, de contrôle, et de résultat), résultat.
-
--   Exercice : les étudiants se voient chacun remettre un article (en français) et remplir la ligne
-
-> Synthèse théorique : tableau complété de revue de la littérature.
-
-| Référence                    | Titre | Discipline | Périmètre | Données | Unités | Echantillon | Méthode | Traitement | Outcomes | Contrôles | Résultats |
-|------|------|------|------|------|------|------|------|------|------|------|------|
-| [@spracklen_global_2015]     |       |            |           |         |        |             |         |            |          |           |           |
-| [@joppa_global_2011]         |       |            |           |         |        |             |         |            |          |           |           |
-| [@desbureaux_common_2016]    |       |            |           |         |        |             |         |            |          |           |           |
-| [@gimenez_impact_2012]       |       |            |           |         |        |             |         |            |          |           |           |
-| [@nelson_effectiveness_2011] |       |            |           |         |        |             |         |            |          |           |           |
-| [@waeber_how_2016]           |       |            |           |         |        |             |         |            |          |           |           |
-|                              |       |            |           |         |        |             |         |            |          |           |           |
-|                              |       |            |           |         |        |             |         |            |          |           |           |
-|                              |       |            |           |         |        |             |         |            |          |           |           |
-|                              |       |            |           |         |        |             |         |            |          |           |           |
-
-: Evaluations de l'impact des aires protégées sur la déforestation
-
-```{r Tableau de revue de littérature}
-# On initie un tableau vide
-revue_litt <- tibble::tibble(
-  `Référence` = character(),
-  `Titre` = character(),
-  `Discipline des auteurs` = character(),
-  `Périmètre d'analyse` = character(),
-  `Données mobilisées` = character(),
-  `Unités comparées` = character(),
-  `Taille d'échantillon` = character(),
-  `Méthode d'attibution` = character(),
-  `Variable de traitement` = character(),
-  `Variables de contrôle` = character(),
-  `Variable de résultat` = character(),
-  `Résultats`= character())
-
-# On remplit autant de "fiches" que de références pour composer le tableau final
-revue_litt <- revue_litt %>% add_row(
-  `Référence` = "",
-  `Titre` = "",
-  `Discipline des auteurs` = "",
-  `Périmètre d'analyse` = "",
-  `Données mobilisées` = "",
-  `Unités comparées` = "",
-  `Taille d'échantillon` = "",
-  `Méthode d'attibution` = "",
-  `Variable de traitement` = "",
-  `Variables de contrôle` = "",
-  `Variable de résultat` = "",
-  `Résultats`= "")
-```
-
-### Séance 4 - Sources de données (1/2 journée ?)
-
-Ouvrir les participants sur la diversité des données qui peuvent être mobilisées pour évaluer l'impact de solutions, projets ou politiques publiques : données d'enquêtes, recensements, systèmes d'information (administratifs/gestion), données satellitaires, nouveaux jeux composites. Avantage et limites de ces sources de données. Présentation de sources potentielles : IHSN, institut national de statistique, Protected Planet, FAO... (préparer un tableau de synthèse ?)
-
--   Exercice : recherche de source de données pertinentes pour étudier l'impact des aires protégées sur la déforestation.
-
-Présentation d'outils facilitant la collecte : Google Earth Engine (catalogue) et mapme.biodiversity [@gorgen_mapmebiodiversity_2022].
-
--   Exercice : essai de recherche de données.
-
-> Synthèse : enjeux de compatibilité des mailles spatiales, temporelles, unités...
-
-### Séance 5 - Traitement des données (1 jour ?)
-
-Présentation des principaux logiciels/langages : R, Python, Stata, Google Earth Engine, et ressources pour l'auto-formation.
-
--   Discussions : expériences et avantanges/inconvénients des logiciels à base de code.
-
-Focus sur R : langages, librairies, ressources, types de documents de travail (R, RMarkdown, Quarto, Shiny...) et documents en sortie (présentations, LaTeX/pdf, html, Word, applications interactives...).
-
--   Exercice : prise en main de R, premier rendus
-
-Présentation de l'étude de cas sur les aires protégées à Madagascar : section "Traitement de données" plus bas.
-
-### Séance 6 - analyse de données (2 jours ?)
-
-Reprise des différentes approches d'inférence causale. Focus sur les méthodes de matching. Présentation de l'approche "naïve" de matching.
-
--   Discussion : interprétation du code exécuté.
-
--   Exercice : que faut-il comparer avec quoi.
-
-Présentation des principes de base du matching.
-
--   Exercice : lister les méthodes de matching.
-
-Comparaison des résultats en sortie.
-
-> Synthèse : importance d'avoir une discussion de fond : ATT, ATE, sélection des approches, validation.
-
-### Séance 7 - Interprétation des résultats et discussion (1/2 journée ?)
-
-# Cas d'étude : évaluation de l'impact des aires protégées sur la déforestation à madagascar
-
-## Environnement et paramétrages
-
-L'analyse est réalisée en R, qui est à la fois un logiciel et un langage open sources dédiés à l'analyse de données. Les traitements sont réalisés en Rmarkdown. Le même code source peut générer un rendu en LaTeX/PDF, HTML ou Word.
-
-On réutilise en partie le code publié par Johannes Schielein: Jochen Kluve, Johannes Schielein, Melvin Wong, Yota Eilers, The KfW Protected Areas Portfolio: a Rigorous Impact Evaluation, KfW, 2022-07-08.
-
-On s'appuie sur le package R {mapme.biodiversity}, développé par la KfW dans le cadre de l'initiative commune MAPME qui associe la KfW et l'AFD. Le package {mapme.biodiversity} facilite l'acquisition et la préparation d'un grand nombre de données (CHIRPS, Global Forest Watch, FIRMS, SRTM, Worldpop...) et calculer un grand nombre d'indicateurs de manière harmonisée (active_fire_counts, biome classification, land cover classification, population count, precipitation, soil properties, tree cover loss, travel time...). Une documentation riche est disponible sur le portail dédié du package en question.
-
-On mobilise aussi les codes d'analyse d'impact développés par la même équipe et mise à disposition dans le dépôt Github: <https://github.com/openkfw/mapme.protectedareas>. Le code développé par l'équipe est assez complexe. A des fins pédagogiques et pour s'assurer qu'on l'a bien compris, on propose ici une version simplifiée (en cours de développement)
-
-Les sources pour l'ensemble du code source et du texte du présent document est accessible sur Github à l'adresse suivante : <https://github.com/fBedecarrats/deforestation_madagascar>. Les analyses sont menées sur la plateforme SSP Cloud, mise à disposition par l'INSEE pour les data scientist travaillant pour des administrations publiques. Il s'agit d'une instance de stockage de données massif (S3) et de calcul haute performance (cluster Kubernetes) disposant d'une interface simplifiée permettant à l'utilisateur de configurer, lancer et administrer facilement des environnements de traitement de données (RStudio server, Jupyter lab ou autres...). Le code est conçu pour s'exécuter de la même manière en local sur un PC, mais la préparation des données sera certainement beaucoup plus longue à exécuter.
 
 ## Préparation des données
 
@@ -620,6 +493,12 @@ aws.s3::s3sync(path = "data_s3",
 
 En plus d'un format natif R (rds), on a aussi enregistré l'export au format Stata (.dta)
 
+# Méthode par assignation aléatoire (randomisation)
+
+> ATTENTION : Il va de soi que les AP malgaches n'ont à aucun moment été assignées aléatoirements. Lors de cette séquence, on fait "comme si" pour montrer la manière dont les données sont analysées quand il y a eu assignation aléatoire. On verra en fin de session les limites d'une telle approche et dans les suivantes des manières de construire des contrefactuels plus vraisemblable pour un sujet comme celui-ci.
+
+
+# Méthode d'appariement (matching)
 ## Estimation de l'impact
 
 Première approche d'appariement "naïve"
@@ -700,6 +579,10 @@ Première approche : critiquer la méthode employée ici.
 
 -   Schielein et al. excluent UNESCO MAB Biosphere reserves: pourquoi ?
 
+# Analyse avant-après
+
+# Double différence
+
 # A faire
 
 -   Table Date de création
@@ -719,3 +602,6 @@ Première approche : critiquer la méthode employée ici.
 -   Expliciter le choix de la teneur en argile du sol pour l'analyse
 
 # Bibliographie
+
+::: {#refs}
+:::
