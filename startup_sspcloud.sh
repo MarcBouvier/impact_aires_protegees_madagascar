@@ -1,5 +1,10 @@
 #!/bin/sh
 
+export QUARTO_VERSION="1.2.174"
+sudo curl -o quarto-linux-amd64.deb -L https://github.com/quarto-dev/quarto-cli/releases/download/v${QUARTO_VERSION}/quarto-${QUARTO_VERSION}-linux-amd64.deb
+sudo gdebi quarto-linux-amd64.deb
+
+
 # Create variables
 WORK_DIR=/home/onyxia/work/impact_aires_protegees_madagascar
 REPO_URL=https://${GIT_PERSONAL_ACCESS_TOKEN}@github.com/fBedecarrats/impact_aires_protegees_madagascar # As initial
