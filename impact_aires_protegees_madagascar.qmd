@@ -506,18 +506,6 @@ tm_shape(grille_mada_summary_AP) +
             legend.outside = FALSE)
 ```
 
-```{r eval=FALSE, include=FALSE}
-#| eval: false
-#| include: false
-# Sauvegarde sur le serveur distant pour éviter de télécharger à chaque fois
-aws.s3::s3sync(path = "data_s3",
-               bucket = "fbedecarrats",
-               prefix = "diffusion/deforestation_madagascar/data_s3/",
-               create = FALSE,
-               region = "",
-               verbose = FALSE)
-```
-
 En plus d'un format natif R (rds), on a aussi enregistré l'export au format Stata (.dta)
 
 # Méthode par assignation aléatoire (randomisation)
