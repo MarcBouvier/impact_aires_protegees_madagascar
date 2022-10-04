@@ -23,7 +23,11 @@ chown -R onyxia:users $WORK_DIR
         {
             message('On charge directement le bon projet :-) ')
             rstudioapi::openProject('$WORK_DIR')
+            # For a slick dark theme
             rstudioapi::applyTheme('Merbivore')
+            # Console where it should be
+            rstudioapi::executeCommand('layoutConsoleOnRight')
+            # To free the CTRL+Y shortcut for 'redo'
             }
             }, action = 'append')
             " >> /home/onyxia/work/.Rprofile
