@@ -20,7 +20,7 @@ bibliography: bibliography_tany_vao.bib
 
 # Introduction
 
-Ce contenu a été développé afin de servir de support pédagogique pour l'atelier "évaluation des politiques" de la session 2022 des Universités en sciences sociales *Tany Vao*. Les universités Tany Vao visent à dispenser une formation à la recherche de haut niveau à l'attention de doctorants et jeunes chercheurs de Madagascar et d\'Afrique de l\'Ouest. Après deux jours de plénières, les participants se répartissent pendant cinq jours entre quatre ateliers parallèles : socioéconomie, éthnoégologie, anthropologie et évaluation des politiques.
+Ce contenu a été développé afin de servir de support pédagogique pour l'atelier "évaluation des politiques" de la session 2022 des Universités en sciences sociales *Tany Vao*. Les universités Tany Vao visent à dispenser une formation à la recherche de haut niveau à l'attention de doctorants et jeunes chercheurs de Madagascar et d'Afrique de l'Ouest. Après deux jours de plénières, les participants se répartissent pendant cinq jours entre quatre ateliers parallèles : socioéconomie, éthnoégologie, anthropologie et évaluation des politiques.
 
 L'atelier "évaluation des politiques" adopte une approche axée l'économétrie et la science des données. Il alterne des sessions théorique et pratique. Conformément au thème phare de Tany Vao pour 2022 ("environnement et sociétés"), le cas d'étude choisi pour servir de fil rouge à ces travaux est l'impact des aires protégées sur la déforestation.
 
@@ -77,8 +77,6 @@ options(scipen =999)
 ```
 
 ## Mode d'emploi
-
-
 
 ## Préparation des données
 
@@ -142,6 +140,35 @@ Il faut aussi s'assurer qu'on filtre bien les entitées analysées selon un cri�
 ### Données satellitaires
 
 Ici le package mapme.biodiversity développé par la KfW est particulièrement utile pour l'analyse. Il automatise en large partie le processus d'acquisition de données brutes issu de sources divers et le calcul d'indicateurs pour des périmètres définies (ici, les 120 612 hexagones du maillage du territoire malgache). Ce processus est toutefois très gourmand en ressources et on l'a réalisé sur un environnement de calcul haute performance (la plateforme SSP Cloud de l'INSEE). Les résultats de ces traitements ont été enregistrés et il ne semble pas pertinent/utile de demander aux apprenants de le refaire, ce serait beaucoup trop long.
+
+#### Indicateurs par aire protégée
+
+```{r}
+aires_prot_poly <- aires_prot_mada %>%
+  filter(st_geometry_type(.) == "MULTIPOLYGON") %>%
+  st_cast("POLYGON")
+
+# Constitution d'un portefeuille (voir la documentation)
+aires_prot_poly <- init_portfolio(x = aires_prot_poly, 
+                                  years = 2000:2020,
+                                  outdir = "data_s3/mapme",
+                                  cores = 1,
+                                  add_resources = TRUE,
+                                  verbose = TRUE)
+
+
+
+# Indicateurs de couvert forestier
+aires_prot_poly  <- calc_indicators(x = aires_prot_poly,
+                                    indicators = "treecover_area_and_emissions", 
+                                    min_cover = 10, min_size = 1)
+
+
+```
+
+
+#### Indicateurs par maille
+
 
 ```{r Données satellitaires}
 # Ce qui suit jusqu'à la commande "save" ne s'execute que si le résultat n'a pas
@@ -497,8 +524,8 @@ En plus d'un format natif R (rds), on a aussi enregistré l'export au format Sta
 
 > ATTENTION : Il va de soi que les AP malgaches n'ont à aucun moment été assignées aléatoirements. Lors de cette séquence, on fait "comme si" pour montrer la manière dont les données sont analysées quand il y a eu assignation aléatoire. On verra en fin de session les limites d'une telle approche et dans les suivantes des manières de construire des contrefactuels plus vraisemblable pour un sujet comme celui-ci.
 
-
 # Méthode d'appariement (matching)
+
 ## Estimation de l'impact
 
 Première approche d'appariement "naïve"
