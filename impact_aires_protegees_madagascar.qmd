@@ -163,12 +163,10 @@ aires_prot_poly  <- calc_indicators(x = aires_prot_poly,
                                     indicators = "treecover_area_and_emissions", 
                                     min_cover = 10, min_size = 1)
 
-
+# test
 ```
 
-
 #### Indicateurs par maille
-
 
 ```{r Données satellitaires}
 # Ce qui suit jusqu'à la commande "save" ne s'execute que si le résultat n'a pas
