@@ -164,6 +164,7 @@ aires_prot_poly  <- calc_indicators(x = aires_prot_poly,
                                     min_cover = 10, min_size = 1)
 
 # test
+# test2
 ```
 
 #### Indicateurs par maille
