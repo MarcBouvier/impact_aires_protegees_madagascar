@@ -26,7 +26,7 @@ L'atelier "évaluation des politiques" adopte une approche axée l'économétrie
 
 ## Environnement
 
-Les éléments ci-dessous constituent le support pour les sessions pratiques de cet atelier. Il sont réalisée selon une approche ouverte, repoductible fondée sur un document de type notebook [@bedecarrats_alternative_2017]. L'analyse est réalisée en R, qui est à la fois un logiciel et un langage open sources dédiés à l'analyse de données. Les traitements sont réalisés en Quarto. Le même code source peut générer un rendu en LaTeX/PDF, HTML ou Word.
+Les éléments ci-dessous constituent le support pour les sessions pratiques de cet atelier. Il sont réalisée selon une approche ouverte, repoductible fondée sur un document de type notebook [@bedecarrats_alternative_2017]. Les traitements sont réalisés en R, qui est à la fois un logiciel et un langage open sources dédiés à l'analyse de données. Les traitements R sont inclus dans un document Quarto, pour garantir la reproductibilité du code, le lien avec les explications et interprétations rédigées en complément et la production de rendus dans différents formats (LaTeX/PDF, HTML ou Word).
 
 On s'appuie sur le package R {mapme.biodiversity}, développé par la KfW dans le cadre de l'initiative commune MAPME qui associe la KfW et l'AFD. Le package {mapme.biodiversity} facilite l'acquisition et la préparation d'un grand nombre de données (CHIRPS, Global Forest Watch, FIRMS, SRTM, Worldpop...) et calculer un grand nombre d'indicateurs de manière harmonisée (active_fire_counts, biome classification, land cover classification, population count, precipitation, soil properties, tree cover loss, travel time...). Une documentation riche est disponible sur le portail dédié du package en question [@kluve_kfw_2022].
 
@@ -41,7 +41,10 @@ Les sources pour l'ensemble du code source et du texte du présent document est 
 
 librairies_requises <- c( # On liste les librairies dont on a besoin
   "dplyr", # Pour faciliter la manipulation de données tabulaires
+  "readxl", # Pour lire les fichiers excel (Carvalho et al. 2018)
   "tidyr", # Pour reformater les données (pivots...)
+  "stringr", # Pour manipuler des chaînes de caractères
+  "lubridate", # Pour manipuler des dates
   "sf", # Pour faciliter la manipulation de données géographiques
   "wdpar", # Pour télécharger simplement la base d'aires protégées WDPA
   "tmap", # Pour produire de jolies carte
@@ -142,6 +145,138 @@ Il faut aussi s'assurer qu'on filtre bien les entitées analysées selon un cri�
 Ici le package mapme.biodiversity développé par la KfW est particulièrement utile pour l'analyse. Il automatise en large partie le processus d'acquisition de données brutes issu de sources divers et le calcul d'indicateurs pour des périmètres définies (ici, les 120 612 hexagones du maillage du territoire malgache). Ce processus est toutefois très gourmand en ressources et on l'a réalisé sur un environnement de calcul haute performance (la plateforme SSP Cloud de l'INSEE). Les résultats de ces traitements ont été enregistrés et il ne semble pas pertinent/utile de demander aux apprenants de le refaire, ce serait beaucoup trop long.
 
 #### Indicateurs par aire protégée
+
+La base de données WDPA est peu fiable. On va plutôt essayer de s'appuyer sur celle rassemblée par l'association dans le cadre d'une monographie des aires protégées malgaches (XXX 2018), Complété par l'article (YYYY, 2020)
+
+```{r}
+unzip("data_s3/Vahatra/Vahatra98AP.zip", exdir = "data_s3/Vahatra")
+AP_Vahatra <- st_read("data_s3/Vahatra/Vahatra98AP.shp")
+sup2 <- read_xlsx("data_s3/Vahatra/Carvalho2018sup2.xlsx", skip = 8, n_max = 101)
+sup4 <- read_xlsx("data_s3/Vahatra/Carvalho2018sup4.xlsx", skip = 6)
+
+# Carvalho et al. 2008 document in their supp. material 2: "The three parcels that made up
+# Andohahela (Parcels I, II and III) comprised different types of dominant vegetation and
+# associated animal species, and were exposed to distinct pressures. Andohahela was analysed
+# in its entirety (site number 57), as well as separated"
+
+sup2 <- sup2 %>% 
+  mutate(PA = recode(PA, `Andohahela complete` = "Andohahela"),
+         num_atlas_ = as.integer(`Site number`))
+
+sup4 <- sup4 %>%
+  filter(`Habitat type` == "TOTAL") %>%
+  mutate(num_atlas_ = as.numeric(Parcel)) 
+
+AP_Vahatra <- AP_Vahatra %>%
+  left_join(sup2, by = "num_atlas_") %>%
+  relocate(PA, .after = nom) %>%
+  left_join(sup4, by = "num_atlas_")
+
+
+test <- AP_Vahatra %>%
+  mutate(date_creation = case_when())
+
+#  [1] "Décret n°2015-792 du 28 avril 2015"
+#  [2] "Décret n°2015-808 du 5 mai 2015"
+#  [3] "Créée depuis le 28 octobre 1958"
+#  [4] "Créée le 10 septembre 1956"
+#  [5] "Décret n°2015-790 du 28 avril 2015"
+#  [6] "Créée le 10 setembre 1956"
+#  [7] "Décret n°2015-808 du 5 mai 2015"
+#  [8] "Décret n°2015 -718 du 21 avril 2015"
+#  [9] "Décret n°2015 -719 du 21 avril 2015"
+# [10] "Décret n°2015 -720 du 21 avril 2015"
+# [11] "Décret n°2015-808 du 5 mai 2015"
+# [12] "Décret n°2015-727 du 21 avril 2015"
+# [13] "Décret n°2015-728 du 21 avril 2015"
+# [14] "Décret n°2015-754 du 28 avril 2015"
+# [15] "Décret n°2015-755 du 28 avril 2015"
+# [16] "Décret n°2015-789 du 28 avril 2015"
+# [17] "Décret n°2015-808 du 5 mai 2015"
+# [18] "Décret n°2015-758 du 28 avril 2015"
+# [19] "Décret n°2015-756 du 28 avril 2015"
+# [20] "Décret n°2015-761 du 28 avril 2015"
+# [21] "Décret n°2015-763 du 28 avril 2015"
+# [22] "Décret n°2015-781 du 28 avril 2015"
+# [23] "Décret n°2015 -724 du 21 avril 2015"
+# [24] "Décret n°2015-749 du 28 avril 2015"
+# [25] "Décret n°2015-725 du 21 avril 2015"
+# [26] "Décret n°2015-794 du 28 avril 2015"
+# [27] "Décret n°2015-759 du 28 avril 2015"
+# [28] "Décret n°2015-762 du 28 avril 2015"
+# [29] "Décret n°2015-766 du 28 avril 2015"
+# [30] "Décret n°2015-770 du 28 avril 2015"
+# [31] "Décret n°2015-768 du 28 avril 2015"
+# [32] "Décret n°2015-772 du 28 avril 2015"
+# [33] "Décret n°2015-783 du 28 avril 2015"
+# [34] "Décret n°2015-767 du 28 avril 2015"
+# [35] "Décret n°2015-769 du 28 avril 2015"
+# [36] "Décret n°2015-771 du 28 avril 2015"
+# [37] "Décret n°2015-773 du 28 avril 2015"
+# [38] "Décret n°2015-765 du 28 avril 2015"
+# [39] "Décret n°2015-793 du 28 avril 2015"
+# [40] "Décret n°2015-774 du 28 avril 2015"
+# [41] "Décret n°2015 -712 du 21 avril 2015"
+# [42] "Créée depuis le 28.10.58; Changement de limite en 2015 sous le décret n°2015-782 du 28 avril 2015"  
+# [43] "Créée depuis le  12.02.82; Changement de limite en 2015 sous le decret n° 2015-731 du 21 avril 2015"
+# [44] "Créée le 21 juin 1970"
+# [45] "Créée depuis le 20.02.56, PN actuel sous le décret n° 2015-732 du 21 avril 2015"
+# [46] "Créée depuis le 28.10.58"
+# [47] "Créée le 19 octobre 1998"
+# [48] "Créée le 28 octobre 1958"
+# [49] "Créée le 07.08.02, Changement de limite en 2015 sous le n° décret 2015-730 du 21 avril 2015"        
+# [50] "Créée depuis le 07.08.07, Changement limite en 2015 sous le n° décret 2015-785 du 28 avril 2015"    
+# [51] "Changement de limite en 2015 sous le décret n° 2015-729 du 21 avril 2015, Créée depuis le 20.02.56" 
+# [52] "Créée le 18 decembre 1997"
+# [53] "Créée le 07.08.97, Changement de statut en 2011 auparavant PN et RNI , actuellement PN"
+# [54] "Créée le 31 decembre 1997"
+# [55] "Créée le 04 juin 1986"
+# [56] "Créée le 20 fevrier 1956"   
+# [57] "Créée le 24.10.62, Changement de limite en 2015 sous le décret n° 2015-733 du 21 avril 2015"        
+# [58] "Décret N°2007/247 du 19/03/07"                                                                      
+# [59] "Créée depuis le 19 juillet 1962"                                                                    
+# [60] "Créée le 24.04.59, Changement de limite en 2015 sous le décret n° 2015-734 du 21 avril 2015"        
+# [61] "Décret n°2011 - 499 du 06 juillet 2011, anciennement RNI"                                           
+# [62] "Créée le 25 juillet 1989"                                                                           
+# [63] "Créée le 28 octobre 1958"                                                                           
+# [64] "Créée depuis le 18.12.97, Changement limite en 2015 sous le décret 2015-735 du 21 avril 2015"       
+# [65] "Créée depuis le 05 decembre 1962"                                                                   
+# [66] "Créée depuis le 20 fevrier 1956"                                                                    
+# [67] "Changement de limite le 07 aout 2002"                                                               
+# [68] "Créée le 19 mai 1998"                                                                               
+# [69] "Décret n°2015 -716 du 21 avril 2015"                                                                
+# [70] "Créée le 20.02.56, Changement de limite en 2015 sous le décret n° 2015- 784 du 28 avril 2015"       
+# [71] "Créée le 02 mars 1997"                                                                              
+# [72] "Créée le 18 decembre 1997"                                                                          
+# [73] "Décret n°2011 - 499 du 06 juillet 2011"                                                             
+# [74] "Créée le 14 decembre 1965"                                                                          
+# [75] "Créée le 28.10.58, changement limite; PN et RS avant, PN actuel déc 2015-776 du 28/04/15"           
+# [76] "Créée depuis le 07.08.03, Changement de limite en 2015 sous le n° décret 2015-736 du 21 avril 2015"
+# [77] "Décret n°2011 - 499 du 06 juillet 2011"       
+# [78] "Créée le 16.09.64, Changement statut & limite en 2015, RS avant , PN en 2015 - déc n° 2015-775"
+# [79] "Créée le 27 mai 1991"
+# [80] "Créée depuis le 31.12.97, Changement de statut en 2011 auparavant RNI, actuellement PN"
+# [81] "Décret n°2015-777 du 28 avril 2015"
+# [82] "Créée le 07 aout 04"    
+# [83] "Créée depuis le 07.08.97; auparavant RNI et PN actuellement  (déc: 2015-737 du 21/04/2015)"
+# [84] "Créée le 18 decmbre 1997"
+# [85] "Décret n°2015-782 du 28 avril 2015"
+# [86] "Décret n°2015-779 du 28 avril 2015"
+# [87] "Décret n°2015 -713 du 21 avril 2015"
+# [88] "Décret n°2015-780 du 28 avril 2015"
+# [89] "Décret n°2015 -715 du 21 avril 2015"
+# [90] "Décret n°2015 -714 du 21 avril 2015"
+# [91] "Décret n°2015-782 du 28 avril 2015"
+# [92] "Décret n°2015 -711 du 21 avril 2015"
+# [93] "Décret n°2012-641 du 19 juin 2012"
+# [94] "Décret n°2015-788 du 28 avril 2015"
+# [95] "Décret n°2015-787 du 28 avril 2015"
+# [96] "Décret n°2015-782 du 28 avril 2015" 
+# [97] "Décret n°2015-782 du 28 avril 2015" 
+# [98] "Décret n°2015-786 du 28 avril 2015"
+
+
+```
 
 ```{r}
 aires_prot_poly <- aires_prot_mada %>%
