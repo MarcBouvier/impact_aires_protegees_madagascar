@@ -172,109 +172,92 @@ AP_Vahatra <- AP_Vahatra %>%
   relocate(PA, .after = nom) %>%
   left_join(sup4, by = "num_atlas_")
 
+# Identification des dates ----------------------------------------------------
+# Cette section est un brin complexe, à base de manipulation de chaînes de 
+# caractères et de dates
 
-test <- AP_Vahatra %>%
-  mutate(date_creation = case_when())
+# Détecte les dates écrites 2 avril 2020 ou 02 avril 2020, etc.
+date_ecrite <- "[:digit:]{1,2} [:alpha:]* [:digit:]{4}"
+# Détecte les dates écrites 02/04/20 ou 02.04.20 ou 02.04.2020, etc.
+date_abrev <- "[:digit:]{2}[:punct:][:digit:]{2}[:punct:][:digit:]{2,4}"
+# Des années écrites à 2 chiffres
+date_ecrite_an_abrev <- "[:digit:]{1,2} [:alpha:]* [:digit:]{4}"
+# Détecte l'une ou l'autre des formes précédentes
+toute_date <- paste(date_ecrite, date_abrev, date_ecrite_an_abrev, sep = "|")
+# Détecte une mention d'année seule : 1984, 2015, etc.
+annee_seule <- "[:digit:]{4}"
+# Détecte les formes indicatrices d'un changement
+mention_changement <- "Changement|changement|anciennement|actuel|auparavant"
+# Une fonction qui traduit les dates écrites en toutes lettre du français à 
+# l'anglais (pour les parser ensuite car ça ne fonctionne qu'en anglais)
+trad_dates <- function(date_fr) {
+  str_replace_all(date_fr,
+                  c("janvier" = "January",
+                    "fevrier" = "February",
+                    "mars" = "March",
+                    "avril" = "April",
+                    "mai" = "May",
+                    "juin" = "June",
+                    "juillet" = "July",
+                    "aout" = "August",
+                    "septembre|setembre" = "September",
+                    "octobre" = "October",
+                    "novembre" = "November",
+                    "decembre|decmbre" = "December"))
+}
+# Cette fonction remplace 01.04.58 par 01.04.1958 et marche avec . ou /
+# On indique avec limite le nombre d'année où on considère que c'est 1900 vs 2000
+complete_annee <- function(date_abrev, limite = 20) {
+  if (str_detect(date_abrev, "([:punct:])([:digit:]{2})[:punct:]?$")) {
+    date_abrev <- str_remove(date_abrev, ":punct:]?$")
+    if (as.numeric(str_extract(date_abrev, "[:digit:]{2}$")) > limite) {
+      date_abrev <- str_replace(date_abrev, 
+                                "([:punct:])([:digit:]{2})[:punct:]?$", "\\119\\2")
+    } else {
+      date_abrev <- str_replace(date_abrev, 
+                                "([:punct:])([:digit:]{2})[:punct:]?$", "\\120\\2")
+    }
+  }
+  return(date_abrev)
+}
 
-#  [1] "Décret n°2015-792 du 28 avril 2015"
-#  [2] "Décret n°2015-808 du 5 mai 2015"
-#  [3] "Créée depuis le 28 octobre 1958"
-#  [4] "Créée le 10 septembre 1956"
-#  [5] "Décret n°2015-790 du 28 avril 2015"
-#  [6] "Créée le 10 setembre 1956"
-#  [7] "Décret n°2015-808 du 5 mai 2015"
-#  [8] "Décret n°2015 -718 du 21 avril 2015"
-#  [9] "Décret n°2015 -719 du 21 avril 2015"
-# [10] "Décret n°2015 -720 du 21 avril 2015"
-# [11] "Décret n°2015-808 du 5 mai 2015"
-# [12] "Décret n°2015-727 du 21 avril 2015"
-# [13] "Décret n°2015-728 du 21 avril 2015"
-# [14] "Décret n°2015-754 du 28 avril 2015"
-# [15] "Décret n°2015-755 du 28 avril 2015"
-# [16] "Décret n°2015-789 du 28 avril 2015"
-# [17] "Décret n°2015-808 du 5 mai 2015"
-# [18] "Décret n°2015-758 du 28 avril 2015"
-# [19] "Décret n°2015-756 du 28 avril 2015"
-# [20] "Décret n°2015-761 du 28 avril 2015"
-# [21] "Décret n°2015-763 du 28 avril 2015"
-# [22] "Décret n°2015-781 du 28 avril 2015"
-# [23] "Décret n°2015 -724 du 21 avril 2015"
-# [24] "Décret n°2015-749 du 28 avril 2015"
-# [25] "Décret n°2015-725 du 21 avril 2015"
-# [26] "Décret n°2015-794 du 28 avril 2015"
-# [27] "Décret n°2015-759 du 28 avril 2015"
-# [28] "Décret n°2015-762 du 28 avril 2015"
-# [29] "Décret n°2015-766 du 28 avril 2015"
-# [30] "Décret n°2015-770 du 28 avril 2015"
-# [31] "Décret n°2015-768 du 28 avril 2015"
-# [32] "Décret n°2015-772 du 28 avril 2015"
-# [33] "Décret n°2015-783 du 28 avril 2015"
-# [34] "Décret n°2015-767 du 28 avril 2015"
-# [35] "Décret n°2015-769 du 28 avril 2015"
-# [36] "Décret n°2015-771 du 28 avril 2015"
-# [37] "Décret n°2015-773 du 28 avril 2015"
-# [38] "Décret n°2015-765 du 28 avril 2015"
-# [39] "Décret n°2015-793 du 28 avril 2015"
-# [40] "Décret n°2015-774 du 28 avril 2015"
-# [41] "Décret n°2015 -712 du 21 avril 2015"
-# [42] "Créée depuis le 28.10.58; Changement de limite en 2015 sous le décret n°2015-782 du 28 avril 2015"  
-# [43] "Créée depuis le  12.02.82; Changement de limite en 2015 sous le decret n° 2015-731 du 21 avril 2015"
-# [44] "Créée le 21 juin 1970"
-# [45] "Créée depuis le 20.02.56, PN actuel sous le décret n° 2015-732 du 21 avril 2015"
-# [46] "Créée depuis le 28.10.58"
-# [47] "Créée le 19 octobre 1998"
-# [48] "Créée le 28 octobre 1958"
-# [49] "Créée le 07.08.02, Changement de limite en 2015 sous le n° décret 2015-730 du 21 avril 2015"        
-# [50] "Créée depuis le 07.08.07, Changement limite en 2015 sous le n° décret 2015-785 du 28 avril 2015"    
-# [51] "Changement de limite en 2015 sous le décret n° 2015-729 du 21 avril 2015, Créée depuis le 20.02.56" 
-# [52] "Créée le 18 decembre 1997"
-# [53] "Créée le 07.08.97, Changement de statut en 2011 auparavant PN et RNI , actuellement PN"
-# [54] "Créée le 31 decembre 1997"
-# [55] "Créée le 04 juin 1986"
-# [56] "Créée le 20 fevrier 1956"   
-# [57] "Créée le 24.10.62, Changement de limite en 2015 sous le décret n° 2015-733 du 21 avril 2015"        
-# [58] "Décret N°2007/247 du 19/03/07"                                                                      
-# [59] "Créée depuis le 19 juillet 1962"                                                                    
-# [60] "Créée le 24.04.59, Changement de limite en 2015 sous le décret n° 2015-734 du 21 avril 2015"        
-# [61] "Décret n°2011 - 499 du 06 juillet 2011, anciennement RNI"                                           
-# [62] "Créée le 25 juillet 1989"                                                                           
-# [63] "Créée le 28 octobre 1958"                                                                           
-# [64] "Créée depuis le 18.12.97, Changement limite en 2015 sous le décret 2015-735 du 21 avril 2015"       
-# [65] "Créée depuis le 05 decembre 1962"                                                                   
-# [66] "Créée depuis le 20 fevrier 1956"                                                                    
-# [67] "Changement de limite le 07 aout 2002"                                                               
-# [68] "Créée le 19 mai 1998"                                                                               
-# [69] "Décret n°2015 -716 du 21 avril 2015"                                                                
-# [70] "Créée le 20.02.56, Changement de limite en 2015 sous le décret n° 2015- 784 du 28 avril 2015"       
-# [71] "Créée le 02 mars 1997"                                                                              
-# [72] "Créée le 18 decembre 1997"                                                                          
-# [73] "Décret n°2011 - 499 du 06 juillet 2011"                                                             
-# [74] "Créée le 14 decembre 1965"                                                                          
-# [75] "Créée le 28.10.58, changement limite; PN et RS avant, PN actuel déc 2015-776 du 28/04/15"           
-# [76] "Créée depuis le 07.08.03, Changement de limite en 2015 sous le n° décret 2015-736 du 21 avril 2015"
-# [77] "Décret n°2011 - 499 du 06 juillet 2011"       
-# [78] "Créée le 16.09.64, Changement statut & limite en 2015, RS avant , PN en 2015 - déc n° 2015-775"
-# [79] "Créée le 27 mai 1991"
-# [80] "Créée depuis le 31.12.97, Changement de statut en 2011 auparavant RNI, actuellement PN"
-# [81] "Décret n°2015-777 du 28 avril 2015"
-# [82] "Créée le 07 aout 04"    
-# [83] "Créée depuis le 07.08.97; auparavant RNI et PN actuellement  (déc: 2015-737 du 21/04/2015)"
-# [84] "Créée le 18 decmbre 1997"
-# [85] "Décret n°2015-782 du 28 avril 2015"
-# [86] "Décret n°2015-779 du 28 avril 2015"
-# [87] "Décret n°2015 -713 du 21 avril 2015"
-# [88] "Décret n°2015-780 du 28 avril 2015"
-# [89] "Décret n°2015 -715 du 21 avril 2015"
-# [90] "Décret n°2015 -714 du 21 avril 2015"
-# [91] "Décret n°2015-782 du 28 avril 2015"
-# [92] "Décret n°2015 -711 du 21 avril 2015"
-# [93] "Décret n°2012-641 du 19 juin 2012"
-# [94] "Décret n°2015-788 du 28 avril 2015"
-# [95] "Décret n°2015-787 du 28 avril 2015"
-# [96] "Décret n°2015-782 du 28 avril 2015" 
-# [97] "Décret n°2015-782 du 28 avril 2015" 
-# [98] "Décret n°2015-786 du 28 avril 2015"
+complete_liste_dates <- function(liste_dates) {
+  map(liste_dates, complete_annee)
+}
 
+map(test$date_creationA, complete_annee)
+
+for (i in 1:nrow(test)) {
+  print(i)
+  print(test$date_creationA[i])
+  print(complete_annee(test$date_creationA[i]))
+}
+
+
+AP_Vahatra <- AP_Vahatra %>%
+  # On extrait les dates des champs de texte
+  mutate(date_creation = str_extract_all(creation, toute_date), 
+         # Une date a un format incohérent, on la recode à la main
+         date_creation = ifelse(creation == "Créée le 07 aout 04",
+                                "07 aout 2004", date_creation),
+         date_creationA = map(date_creation, 1), # La 1ère date
+         date_creationB = map(date_creation, 2)) %>% # Si 2 dates, la seconde
+  # On traduit les mois en anglais pour une conversion au format date
+  mutate(across(c("date_creationA", "date_creationB"), trad_dates)) %>%
+  mutate(across(c("date_creationA", "date_creationB"), complete_liste_dates)) %>%
+  mutate(across(c("date_creationA", "date_creationB"), dmy)) %>%
+  mutate(date_creation = case_when(is.na(date_creationB) ~ date_creationA,
+                                    date_creationA > date_creationB ~ date_creationB,
+                                    date_creationA <= date_creationB ~ date_creationA),
+         date_modification = case_when(is.na(date_creationB) ~ date_creationB,
+                                       date_creationA < date_creationB ~ date_creationB,
+                                       date_creationA >= date_creationB ~ date_creationA),
+         # On repère si il y a eu un changement de statut ou de frontières
+         mention_changement = str_detect(creation, mention_changement)) %>%
+    # On enlève les colonnes inutiles
+  select(-date_creation, -date_creationA, -date_creationB) %>%
+  # On place les colonnes créées à gauche pour les inspecter facilement
+  relocate(date_creation:mention_changement, .after = creation)
 
 ```
 
